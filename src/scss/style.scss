@@ -3,3 +3,10 @@
 @import "vendor/normalize";
 @import "vendor/swiper";
 @import "general/scaffoldings";
+
+//components
+@import "components/header/header";
+@import "components/nav/nav";
+@import "components/cart/cart";
+@import "components/hero/hero";
+@import "components/logo/logo";

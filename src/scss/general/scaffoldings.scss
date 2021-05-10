@@ -23,9 +23,7 @@ a {
 }
 
 .list-reset {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  @include list-reset;
 }
 
 .is-outer {
@@ -54,16 +52,13 @@ a {
 }
 
 .btn-reset {
-  border: none;
-  padding: 0;
-  background: transparent;
-  cursor: pointer;
+  @include btn-reset;
 }
 
 .container {
   margin: 0 auto;
   padding: 0 15px;
-  max-width: 1210px;
+  max-width: 1210px; // ширина контейнера от края до края 1180 + паддинги по 15px = 1210px
 }
 
 .js-focus-visible :focus:not(.focus-visible) {
@@ -88,6 +83,7 @@ a {
 }
 
 .btn {
+  @include btn-reset;
   border-radius: 4px;
   padding: 22px 47px;
   font: var(--middle-regular);

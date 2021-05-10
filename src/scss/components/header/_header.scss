@@ -1,0 +1,20 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.header__container {
+  align-items: center;
+}
+
+.header__left {
+  grid-column: 2 span;
+}
+
+.header__right {
+  display: flex;
+  justify-content: flex-end;
+  grid-column: 10 span;
+}

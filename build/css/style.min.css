@@ -725,9 +725,9 @@ a {
   text-decoration: none; }
 
 .list-reset {
-  list-style: none;
+  padding: 0;
   margin: 0;
-  padding: 0; }
+  list-style: none; }
 
 .is-outer {
   position: relative !important;
@@ -749,10 +749,14 @@ a {
   border: 2px #ff4019 solid !important; }
 
 .btn-reset {
-  border: none;
   padding: 0;
-  background: transparent;
-  cursor: pointer; }
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none; }
+  .btn-reset:focus {
+    outline: none; }
 
 .container {
   margin: 0 auto;
@@ -778,10 +782,18 @@ a {
   gap: var(--grid-gap); }
 
 .btn {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
   border-radius: 4px;
   padding: 22px 47px;
   font: var(--middle-regular);
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out; }
+  .btn:focus {
+    outline: none; }
   .btn--primary {
     color: var(--color-white);
     background-color: var(--color-accent); }
@@ -943,5 +955,69 @@ a {
     color: var(--color-gray); }
   .input::placeholder {
     color: var(--color-gray); }
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; }
+
+.header__container {
+  align-items: center; }
+
+.header__left {
+  grid-column: 2 span; }
+
+.header__right {
+  display: flex;
+  justify-content: flex-end;
+  grid-column: 10 span; }
+
+.nav__list {
+  display: flex;
+  align-items: center; }
+
+.nav__item:not(:last-child) {
+  margin-right: var(--main-offset); }
+
+.nav__link {
+  font: var(--small-book);
+  color: var(--color-white); }
+
+.cart {
+  margin-left: var(--main-offset); }
+
+.cart__btn {
+  width: 20px;
+  height: 20px;
+  position: relative; }
+  .cart__btn svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover; }
+
+.cart__count {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  background-color: var(--color-accent);
+  font: var(--small-book);
+  color: var(--color-white);
+  height: 16px;
+  min-width: 16px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; }
+
+.hero {
+  height: 800px;
+  background-color: var(--color-eastbay); }
+
+.logo {
+  font: var(--middle-high-bold);
+  color: var(--color-white); }
 
 /*# sourceMappingURL=style.min.css.map */

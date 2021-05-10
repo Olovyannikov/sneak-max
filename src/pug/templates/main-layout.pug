@@ -10,8 +10,8 @@ html(lang="ru")
     title #{title}
 
   body
-
+    include ../sections/components/header/_header
     main.main
       block content
-    //-include ../sections/components/footer/_footer.pug
+    include ../sections/components/footer/_footer
     script(src="js/script.min.js")

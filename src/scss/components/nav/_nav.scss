@@ -1,0 +1,15 @@
+.nav__list {
+  display: flex;
+  align-items: center;
+}
+
+.nav__item {
+  &:not(:last-child) {
+    margin-right: var(--main-offset);
+  }
+}
+
+.nav__link {
+  font: var(--small-book);
+  color: var(--color-white);
+}

@@ -21,7 +21,7 @@ let path = {
     css: source_folder + "/scss/style.scss",
     js: source_folder + "/js/script.js",
     img: source_folder + "/img/**/*.{png,jpeg,jpg,gif,ico,webp,svg}",
-    fonts: source_folder + "/fonts/*.{woff,woff2,ttf,svg}",
+    fonts: source_folder + "assets/fonts/*.{woff,woff2,ttf,svg}",
   },
   watch: {
     html: source_folder + "/**/*.html",
