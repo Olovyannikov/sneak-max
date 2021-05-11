@@ -3,9 +3,10 @@
 }
 
 .cart__btn {
+  position: relative;
   width: 20px;
   height: 20px;
-  position: relative;
+
   svg {
     display: block;
     width: 100%;
@@ -16,15 +17,15 @@
 
 .cart__count {
   position: absolute;
-  bottom: -6px;
   right: -6px;
-  background-color: var(--color-accent);
-  font: var(--small-book);
-  color: var(--color-white);
+  bottom: -6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   height: 16px;
   min-width: 16px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
+  font: var(--small-book);
+  color: var(--color-white);
+  background-color: var(--color-accent);
 }

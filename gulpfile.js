@@ -21,7 +21,7 @@ let path = {
     css: source_folder + "/scss/style.scss",
     js: source_folder + "/js/script.js",
     img: source_folder + "/img/**/*.{png,jpeg,jpg,gif,ico,webp,svg}",
-    fonts: source_folder + "assets/fonts/*.{woff,woff2,ttf,svg}",
+    fonts: source_folder + "/fonts/*.{woff,woff2,ttf,svg}",
   },
   watch: {
     html: source_folder + "/**/*.html",
@@ -150,8 +150,13 @@ const scripts = () => {
 }
 
 const resources = () => {
-  return src(source_folder + '/resources/**')
-    .pipe(dest(project_folder + '/'))
+  return src(source_folder + '/assets/**')
+    .pipe(dest(project_folder + '/assets'))
+}
+
+const fonts = () => {
+  return src(source_folder + '/fonts/**')
+    .pipe(dest(path.build.fonts))
 }
 
 const images = () => {
@@ -193,7 +198,7 @@ const watchFiles = () => {
   watch(path.watch.js, scripts);
   //watch('./src/partials/*.html', htmlInclude);
   watch(path.watch.pug, pug2html);
-  watch(source_folder + '/resources', resources);
+  watch(source_folder + '/assets', resources);
   watch(path.watch.img, images);
   //watch('./src/img/**/*.{jpg,jpeg,png}', images);
   watch(source_folder + '/img/svg/**.svg', svgSprites);
@@ -245,10 +250,10 @@ const grid = (callback) => {
   callback();
 }
 
-exports.default = series(clean, pug2html, scripts, styles, resources, images, svgSprites, watchFiles);
+exports.default = series(clean, pug2html, scripts, styles, resources, fonts, images, svgSprites, watchFiles);
 
-exports.build = series(toProd, clean, pug2html, scripts, styles, resources, images, svgSprites);
+exports.build = series(toProd, clean, pug2html, scripts, styles, resources, fonts, images, svgSprites);
 
 exports.cache = series(cache, rewrite);
 
-exports.backend = series(toProd, clean, pug2html, stylesBackend, resources, images, svgSprites);
+exports.backend = series(toProd, clean, pug2html, stylesBackend, resources, fonts, images, svgSprites);

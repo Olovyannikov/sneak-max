@@ -1,10 +1,10 @@
 @mixin font-face($font-family, $url, $weight, $style) {
   @font-face {
+    src: url("../fonts/#{$url}.woff2") format("woff2");
     font-family: "#{$font-family}";
-    src: url('../fonts/#{$url}.woff2') format("woff2");
     font-weight: #{$weight};
-    font-display: swap;
     font-style: $style;
+    font-display: swap;
   }
 }
 
@@ -174,18 +174,18 @@
 }
 
 @mixin list-reset {
-  padding: 0;
-  margin: 0;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 @mixin btn-reset {
-  padding: 0;
   margin: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
   outline: none;
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
 
   &:focus {
     outline: none;
@@ -194,12 +194,13 @@
 
 @mixin center {
   position: absolute;
-  top: 50%;
   left: 50%;
+  top: 50%;
   transform: translate(-50%, -50%);
 }
 
 @function rem-calc($size) {
   $remSize: $size / 16;
+
   @return #{$remSize}rem;
 }

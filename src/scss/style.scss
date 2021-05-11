@@ -1,10 +1,11 @@
 @import "general/mixins";
+@import "general/fonts";
 @import "general/variables";
 @import "vendor/normalize";
 @import "vendor/swiper";
 @import "general/scaffoldings";
 
-//components
+/* Components */
 @import "components/header/header";
 @import "components/nav/nav";
 @import "components/cart/cart";
