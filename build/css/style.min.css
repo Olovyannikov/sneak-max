@@ -726,6 +726,301 @@ button.swiper-pagination-bullet {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden; }
 
+/* Functional styling;
+ * These styles are required for noUiSlider to function.
+ * You don't need to change these rules to apply your design.
+ */
+.noUi-target,
+.noUi-target * {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  touch-action: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none; }
+
+.noUi-target {
+  position: relative; }
+
+.noUi-base,
+.noUi-connects {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%; }
+
+/* Wrapper for all connect elements.
+ */
+.noUi-connects {
+  z-index: 0;
+  overflow: hidden; }
+
+.noUi-connect,
+.noUi-origin {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  transform-origin: 0 0;
+  transform-style: preserve-3d;
+  transform-style: flat;
+  will-change: transform; }
+
+.noUi-connect {
+  width: 100%;
+  height: 100%; }
+
+.noUi-origin {
+  width: 10%;
+  height: 10%; }
+
+/* Offset direction
+ */
+.noUi-txt-dir-rtl.noUi-horizontal .noUi-origin {
+  left: 0;
+  right: auto; }
+
+/* Give origins 0 height/width so they don't interfere with clicking the
+ * connect elements.
+ */
+.noUi-vertical .noUi-origin {
+  width: 0; }
+
+.noUi-horizontal .noUi-origin {
+  height: 0; }
+
+.noUi-handle {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+.noUi-touch-area {
+  width: 100%;
+  height: 100%; }
+
+.noUi-state-tap .noUi-connect,
+.noUi-state-tap .noUi-origin {
+  transition: transform 0.3s; }
+
+.noUi-state-drag * {
+  cursor: inherit !important; }
+
+/* Slider size and handle placement;
+ */
+.noUi-horizontal {
+  height: 18px; }
+
+.noUi-horizontal .noUi-handle {
+  right: -17px;
+  top: -6px;
+  width: 34px;
+  height: 28px; }
+
+.noUi-vertical {
+  width: 18px; }
+
+.noUi-vertical .noUi-handle {
+  right: -6px;
+  top: -17px;
+  width: 28px;
+  height: 34px; }
+
+.noUi-txt-dir-rtl.noUi-horizontal .noUi-handle {
+  left: -17px;
+  right: auto; }
+
+/* Styling;
+ * Giving the connect element a border radius causes issues with using transform: scale
+ */
+.noUi-target {
+  border: 1px solid #d3d3d3;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px #f0f0f0, 0 3px 6px -5px #bbb;
+  background: #fafafa; }
+
+.noUi-connects {
+  border-radius: 3px; }
+
+.noUi-connect {
+  background: #3fb8af; }
+
+/* Handles and cursors;
+ */
+.noUi-draggable {
+  cursor: ew-resize; }
+
+.noUi-vertical .noUi-draggable {
+  cursor: ns-resize; }
+
+.noUi-handle {
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  box-shadow: inset 0 0 1px #fff, inset 0 1px 7px #ebebeb, 0 3px 6px -3px #bbb;
+  background: #fff;
+  cursor: default; }
+
+.noUi-active {
+  box-shadow: inset 0 0 1px #fff, inset 0 1px 7px #ddd, 0 3px 6px -3px #bbb; }
+
+/* Handle stripes;
+ */
+.noUi-handle::before,
+.noUi-handle::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 6px;
+  display: block;
+  width: 1px;
+  height: 14px;
+  background: #e8e7e6; }
+
+.noUi-handle::after {
+  left: 17px; }
+
+.noUi-vertical .noUi-handle::before,
+.noUi-vertical .noUi-handle::after {
+  left: 6px;
+  top: 14px;
+  width: 14px;
+  height: 1px; }
+
+.noUi-vertical .noUi-handle::after {
+  top: 17px; }
+
+/* Disabled state;
+ */
+[disabled] .noUi-connect {
+  background: #b8b8b8; }
+
+[disabled].noUi-target,
+[disabled].noUi-handle,
+[disabled] .noUi-handle {
+  cursor: not-allowed; }
+
+/* Base;
+ *
+ */
+.noUi-pips,
+.noUi-pips * {
+  box-sizing: border-box; }
+
+.noUi-pips {
+  position: absolute;
+  color: #999; }
+
+/* Values;
+ *
+ */
+.noUi-value {
+  position: absolute;
+  white-space: nowrap;
+  text-align: center; }
+
+.noUi-value-sub {
+  font-size: 10px;
+  color: #ccc; }
+
+/* Markings;
+ *
+ */
+.noUi-marker {
+  position: absolute;
+  background: #ccc; }
+
+.noUi-marker-sub {
+  background: #aaa; }
+
+.noUi-marker-large {
+  background: #aaa; }
+
+/* Horizontal layout;
+ *
+ */
+.noUi-pips-horizontal {
+  left: 0;
+  top: 100%;
+  padding: 10px 0;
+  width: 100%;
+  height: 80px; }
+
+.noUi-value-horizontal {
+  transform: translate(-50%, 50%); }
+
+.noUi-rtl .noUi-value-horizontal {
+  transform: translate(50%, 50%); }
+
+.noUi-marker-horizontal.noUi-marker {
+  margin-left: -1px;
+  width: 2px;
+  height: 5px; }
+
+.noUi-marker-horizontal.noUi-marker-sub {
+  height: 10px; }
+
+.noUi-marker-horizontal.noUi-marker-large {
+  height: 15px; }
+
+/* Vertical layout;
+ *
+ */
+.noUi-pips-vertical {
+  left: 100%;
+  top: 0;
+  padding: 0 10px;
+  height: 100%; }
+
+.noUi-value-vertical {
+  padding-left: 25px;
+  transform: translate(0, -50%); }
+
+.noUi-rtl .noUi-value-vertical {
+  transform: translate(0, 50%); }
+
+.noUi-marker-vertical.noUi-marker {
+  margin-top: -1px;
+  width: 5px;
+  height: 2px; }
+
+.noUi-marker-vertical.noUi-marker-sub {
+  width: 10px; }
+
+.noUi-marker-vertical.noUi-marker-large {
+  width: 15px; }
+
+.noUi-tooltip {
+  position: absolute;
+  display: block;
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  padding: 5px;
+  white-space: nowrap;
+  text-align: center;
+  color: #000;
+  background: #fff; }
+
+.noUi-horizontal .noUi-tooltip {
+  left: 50%;
+  bottom: 120%;
+  transform: translate(-50%, 0); }
+
+.noUi-vertical .noUi-tooltip {
+  right: 120%;
+  top: 50%;
+  transform: translate(0, -50%); }
+
+.noUi-horizontal .noUi-origin > .noUi-tooltip {
+  left: auto;
+  bottom: 10px;
+  transform: translate(50%, 0); }
+
+.noUi-vertical .noUi-origin > .noUi-tooltip {
+  right: 28px;
+  top: auto;
+  transform: translate(0, -18px); }
+
 html {
   box-sizing: border-box; }
 
@@ -835,8 +1130,7 @@ a {
       background-color: var(--color-main); }
 
 .title {
-  margin: 0;
-  margin-bottom: var(--main-offset);
+  margin: 0 0 var(--main-offset);
   font: var(--middle-high-bold);
   color: var(--color-main); }
 
@@ -1094,5 +1388,191 @@ a {
   font: var(--middle-high-bold);
   line-height: 1;
   color: var(--color-white); }
+
+.catalog {
+  padding: var(--big-offset) 0; }
+  .catalog__apply {
+    margin-bottom: var(--second-offset);
+    width: 100%; }
+  .catalog__more {
+    margin-top: var(--big-offset); }
+
+.catalog__left {
+  grid-column: 3 span; }
+
+.catalog__subtitle {
+  margin: 0 0 var(--second-offset);
+  font: var(--prehigh-book);
+  color: var(--color-main); }
+
+.catalog__caption {
+  display: block;
+  margin-bottom: var(--small-offset);
+  font: var(--middle-book);
+  color: var(--color-main); }
+
+.catalog__prop {
+  margin-bottom: var(--second-offset); }
+
+.catalog__prop-checkboxes {
+  display: flex;
+  justify-content: space-between; }
+
+.catalog__grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column: 9 span; }
+
+.catalog-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(9, 1fr); }
+
+.catalog-list__item {
+  grid-column: 3 span; }
+
+.catalog-filters {
+  border-radius: 4px;
+  padding: var(--second-offset);
+  background-color: var(--color-bg); }
+  .catalog-filters__btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+
+.catalog-price .noUi-horizontal {
+  height: 2px; }
+
+.catalog-price .noUi-target {
+  border: none;
+  box-shadow: none;
+  background-color: var(--color-main); }
+
+.catalog-price .noUi-connect {
+  background-color: var(--color-main); }
+
+.catalog-price .noUi-handle {
+  right: 0;
+  top: -8px;
+  border: none;
+  border-radius: 100px;
+  width: 3px;
+  height: 18px;
+  box-shadow: none;
+  background-color: var(--color-main);
+  cursor: pointer; }
+  .catalog-price .noUi-handle::before, .catalog-price .noUi-handle::after {
+    display: none; }
+  .catalog-price .noUi-handle-lower {
+    right: -3px; }
+
+.catalog-price__wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap; }
+  .catalog-price__wrapper::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    height: 34px;
+    background-color: var(--color-gray);
+    transform: translateX(-50%); }
+
+.catalog-price__input {
+  border: 1px solid var(--color-gray);
+  width: 50%;
+  height: 50px;
+  font: var(--middle-book);
+  text-align: center;
+  color: var(--color-main);
+  background-color: transparent; }
+  .catalog-price__input:first-child {
+    border-right: none;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px; }
+  .catalog-price__input:last-child {
+    border-left: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px; }
+
+.product {
+  overflow: hidden;
+  border-radius: 4px; }
+  .product:hover .product__buttons {
+    opacity: 1;
+    visibility: visible; }
+
+.product__buttons {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; }
+
+.product__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-main);
+  transition: background-color 0.3s ease-in-out; }
+  .product__btn svg {
+    width: 30px;
+    height: 30px;
+    -o-object-fit: cover;
+    object-fit: cover; }
+  .product__btn:hover {
+    background-color: var(--color-main-hover); }
+  .product__btn:first-child {
+    margin-right: var(--main-offset); }
+
+.product__image {
+  position: relative;
+  margin-bottom: var(--small-offset);
+  width: 100%;
+  max-height: 293px; }
+  .product__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover; }
+
+.product__title {
+  margin: 0 0 var(--small-offset);
+  font: var(--middle-book);
+  color: var(--color-main); }
+
+.product__price {
+  font: var(--prehigh-regular);
+  color: var(--color-main); }
+
+.sizes-table {
+  border-collapse: collapse;
+  width: 100%; }
+  .sizes-table caption {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none; }
+  .sizes-table td {
+    border: 1px solid var(--color-cameo);
+    padding: 17px 5px;
+    font: var(--middle-book);
+    text-align: center;
+    color: var(--color-main); }
 
 /*# sourceMappingURL=style.min.css.map */

@@ -1,0 +1,52 @@
+section.catalog
+    .catalog__container.container
+        h2.catalog__title.title Каталог
+        .catalog__content.grid
+            .catalog__left
+                .catalog-filters
+                    h3.catalog__subtitle Подбор по&nbsp;параметрам
+                    .catalog__prop
+                        strong.catalog__caption Цена, руб
+                        .catalog-price.catalog__prop-inner
+                            .catalog-price__wrapper
+                                input.catalog-price__input(type='text')#input-0
+                                input.catalog-price__input(type='text')#input-1
+                            .catalog-price__element#range-slider
+                    .catalog__prop
+                        strong.catalog__caption Пол
+                        .catalog__prop-inner.catalog__prop-checkboxes
+                            +custom-checkbox('мужской')
+                            +custom-checkbox('женский')
+                    .catalog__prop
+                        strong.catalog__caption Размер
+                        .catalog__prop-inner
+                            table.sizes-table
+                                caption Таблица размеров
+                                tbody
+                                    tr
+                                        td 35
+                                        td 36
+                                        td 37
+                                    tr
+                                        td 38
+                                        td 39
+                                        td 40
+                                    tr
+                                        td 41
+                                        td 42
+                                        td 43
+                    .catalog-filters__btns
+                        button.btn.btn-reset.btn--secondary.catalog__apply Применить
+                        button.catalog__reset.btn-reset Сбросить
+            .catalog__grid
+                ul.catalog-list.grid
+                    +card-item("Кроссовки Nike Air Force 1'07 QS", 'image.jpeg', '11 000')
+                    +card-item("Кроссовки Nike Air Force 1'07 QS", 'image.jpeg', '11 000')
+                    +card-item("Кроссовки Nike Air Force 1'07 QS", 'image.jpeg', '11 000')
+                    +card-item("Кроссовки Nike Air Force 1'07 QS", 'image.jpeg', '11 000')
+                    +card-item("Кроссовки Nike Air Force 1'07 QS", 'image.jpeg', '11 000')
+                    +card-item("Кроссовки Nike Air Force 1'07 QS", 'image.jpeg', '11 000')
+                    +card-item("Кроссовки Nike Air Force 1'07 QS", 'image.jpeg', '11 000')
+                    +card-item("Кроссовки Nike Air Force 1'07 QS", 'image.jpeg', '11 000')
+                    +card-item("Кроссовки Nike Air Force 1'07 QS", 'image.jpeg', '11 000')
+                button(type='button').catalog__more.btn.btn-reset.btn--primary Показать ещё

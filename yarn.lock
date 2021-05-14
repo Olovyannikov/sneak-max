@@ -7690,6 +7690,11 @@ normalize-url@2.0.1:
     query-string "^5.0.1"
     sort-keys "^2.0.0"
 
+nouislider@^15.1.0:
+  version "15.1.0"
+  resolved "https://registry.yarnpkg.com/nouislider/-/nouislider-15.1.0.tgz#f489d5c110d7e489166734584ce3263d53478c8d"
+  integrity sha512-szBSnk2GsfDmytNFXNIgI4+Hd0VmOOnn4LIdafthIaS0lNFmny8EfyjcqgBoEeouyE+pfDDn0L1qloc2EnjKKA==
+
 now-and-later@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/now-and-later/-/now-and-later-2.0.1.tgz#8e579c8685764a7cc02cb680380e94f43ccb1f7c"

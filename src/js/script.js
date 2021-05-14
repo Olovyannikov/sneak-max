@@ -1,2 +1,3 @@
-import {hi} from './modules/hi'
-hi();
+import {rangeslider} from "./components/rangeslider.component"
+
+rangeslider();

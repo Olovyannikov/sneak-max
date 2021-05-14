@@ -1,0 +1,15 @@
+mixin card-item(productName, image, price)
+
+    li.catalog-list__item
+        article.product
+            .product__image
+                img(src='img/' + image alt=productName)
+                .product__buttons
+                    button.product__btn.btn-reset(aria-label='Показать информацию о товаре')
+                        svg
+                            use(href='img/sprite.svg#show')
+                    button.product__btn.btn-reset(aria-label='Положить товар в корзину')
+                        svg
+                            use(href='img/sprite.svg#cart')
+            h3.product__title #{productName}
+            span.product__price #{price} р

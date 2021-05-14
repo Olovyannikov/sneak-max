@@ -3,6 +3,7 @@
 @import "general/variables";
 @import "vendor/normalize";
 @import "vendor/swiper";
+@import "vendor/nouislider";
 @import "general/scaffoldings";
 
 /* Components */
@@ -11,3 +12,6 @@
 @import "components/cart/cart";
 @import "components/hero/hero";
 @import "components/logo/logo";
+@import "components/catalog/catalog";
+@import "components/product/product";
+@import "components/sizes/sizes";
