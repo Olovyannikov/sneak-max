@@ -4,33 +4,33 @@
   top: 0;
   z-index: 100;
   width: 100%;
-}
 
-.header__container {
-  --paddings: 15px;
+  &__container {
+    --paddings: 15px;
 
-  position: relative;
-  align-items: center;
-  padding: var(--second-offset) var(--paddings);
+    position: relative;
+    align-items: center;
+    padding: var(--second-offset) var(--paddings);
 
-  &::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: calc(100% - var(--paddings) * 2);
-    height: 1px;
-    background-color: var(--color-border);
-    transform: translateX(-50%);
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: calc(100% - var(--paddings) * 2);
+      height: 1px;
+      background-color: var(--color-border);
+      transform: translateX(-50%);
+    }
   }
-}
 
-.header__left {
-  grid-column: 2 span;
-}
+  &__left {
+    grid-column: 2 span;
+  }
 
-.header__right {
-  display: flex;
-  justify-content: flex-end;
-  grid-column: 10 span;
+  &__right {
+    display: flex;
+    justify-content: flex-end;
+    grid-column: 10 span;
+  }
 }

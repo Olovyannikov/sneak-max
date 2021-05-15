@@ -1,0 +1,22 @@
+.about {
+  overflow: hidden;
+  background-color: var(--color-eastbay);
+  height: 580px; //временно
+  &__container {
+    position: relative;
+    display: flex;
+  }
+
+  &__image {
+    width: 100%;
+    height: 580px;
+    overflow: hidden;
+    clip-path: polygon(24.5% 0, 100% 0, 75.7% 100%, 0 100%);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
