@@ -1,22 +1,76 @@
 .about {
+  position: relative;
   overflow: hidden;
   background-color: var(--color-eastbay);
-  height: 580px; //временно
+
+  &__figure {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
   &__container {
     position: relative;
     display: flex;
+    align-items: center;
   }
 
   &__image {
+    clip-path: polygon(24.5% 0, 100% 0, 75.7% 100%, 0 100%);
+    overflow: hidden;
     width: 100%;
     height: 580px;
-    overflow: hidden;
-    clip-path: polygon(24.5% 0, 100% 0, 75.7% 100%, 0 100%);
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+  }
+
+  &__title {
+    margin-bottom: var(--second-offset);
+    color: var(--color-white);
+  }
+
+  &__descr {
+    font: var(--middle-book);
+    color: var(--color-white);
+  }
+
+  &__quote {
+    display: inline-block;
+    margin-bottom: var(--second-offset);
+    font: inherit;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  &__author {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font: var(--prehigh-regular);
+    font-style: normal;
+    transform: translateX(50px);
+
+    &::before {
+      content: "";
+      display: inline-block;
+      margin-right: var(--second-offset);
+      width: 30px;
+      height: 3px;
+      background-color: var(--color-white);
+    }
+  }
+
+  &__text {
+    z-index: 2;
+    width: 34%;
+    transform: translateX(70px);
   }
 }
