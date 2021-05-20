@@ -1,0 +1,26 @@
+section.contacts
+    .container.contacts__container
+        .contacts__text
+            h2.title.contacts__title Контакты
+            .contacts__item
+                h3.contacts__subtitle Главный офис
+                    span.tooltip
+                        button.tooltip__btn.btn-reset(aria-describedby='office' aria-label='Описание адреса')
+                            svg
+                                use(href='img/sprite.svg#tooltip')
+                        span#some_id.tooltip__txt(role='tooltip')
+                            span.visually-hidden Тултип:
+                            |     Адрес и телефон для корреспонденции, инвесторов. Вопросы о доставке, качестве обслуживания и товара просьба задавать в отдел продаж
+
+                a(href='#').contacts__phone +7 800 789 89 89
+                span.contacts__address г. Санкт-Петербург, Комсомольская, 43 к1
+            .contacts__item
+                h3.contacts__subtitle отдел продаж
+                a(href='#').contacts__phone +7 800 789 89 89
+                span.contacts__address г. Санкт-Петербург, Комсомольская, 43 к1
+            ul.social.list-reset
+                li.social__item
+                    a(href='#' aria-label='Мы во Вконтакте').social__link.social__link--vk
+                li.social__item
+                    a(href='#' aria-label='Мы в Инстаграмм').social__link.social__link--insta
+            .contacts__map#map

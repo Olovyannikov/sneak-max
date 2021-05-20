@@ -294,7 +294,66 @@
           <div class="quiz__content">
             <h3 class="quiz__title title">Мы подберем идеальную пару для вас</h3>
             <p class="quiz__descr">Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями</p>
-            <form class="quiz-form"></form>
+            <form class="quiz-form">
+              <div class="quiz-questions"></div>
+              <div class="asd">asda</div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section class="team"><img class="team__figure" src="img/team-figure.svg" aria-hidden="true"/>
+        <div class="team__container container">
+          <h2 class="title team__title">Наша команда</h2>
+          <ul class="team__list grid list-reset">
+                  <li class="team__item"><img class="team__img" src="img/team-1.jpg" alt="Максим Золотарев"/><strong class="team__subtitle">Максим Золотарев</strong><span class="team__descr">Администратор</span></li>
+                  <li class="team__item"><img class="team__img" src="img/team-2.jpg" alt="Максим Золотарев"/><strong class="team__subtitle">Максим Золотарев</strong><span class="team__descr">Администратор</span></li>
+                  <li class="team__item"><img class="team__img" src="img/team-3.jpg" alt="Максим Золотарев"/><strong class="team__subtitle">Максим Золотарев</strong><span class="team__descr">Администратор</span></li>
+                  <li class="team__item"><img class="team__img" src="img/team-4.jpg" alt="Максим Золотарев"/><strong class="team__subtitle">Максим Золотарев</strong><span class="team__descr">Администратор</span></li>
+                  <li class="team__item"><img class="team__img" src="img/team-5.jpg" alt="Максим Золотарев"/><strong class="team__subtitle">Максим Золотарев</strong><span class="team__descr">Администратор</span></li>
+                  <li class="team__item"><img class="team__img" src="img/team-6.jpg" alt="Максим Золотарев"/><strong class="team__subtitle">Максим Золотарев</strong><span class="team__descr">Администратор</span></li>
+          </ul>
+        </div>
+      </section>
+      <section class="faq">
+        <div class="faq__container container">
+          <h2 class="title faq__title">Часто задаваемые вопросы</h2>
+          <ul class="faq__list list-reset">
+            <li class="faq-accordion">
+              <button class="faq-accordion__control btn-reset" aria-expanded="false"><span class="faq-accordion__title">Вопрос 1</span><span class="faq-accordion__icon"></span></button>
+              <div class="faq-accordion__content" aria-hidden="true">
+                <p>А это ответ 1: в комплексе функционируют 6 детских садов с площадками, воспитателями и всякими другими людьми</p>
+              </div>
+            </li>
+            <li class="faq-accordion">
+              <button class="faq-accordion__control btn-reset" aria-expanded="false"><span class="faq-accordion__title">Вопрос 2</span><span class="faq-accordion__icon"></span></button>
+              <div class="faq-accordion__content" aria-hidden="true">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus, beatae!
+                Labore, tenetur. Id culpa quas, eos magnam quos laboriosam quasi.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="contacts">
+        <div class="container contacts__container">
+          <div class="contacts__text">
+            <h2 class="title contacts__title">Контакты</h2>
+            <div class="contacts__item">
+              <h3 class="contacts__subtitle">Главный офис<span class="tooltip">
+                  <button class="tooltip__btn btn-reset" aria-describedby="office" aria-label="Описание адреса">
+                    <svg>
+                      <use href="img/sprite.svg#tooltip"></use>
+                    </svg>
+                  </button><span class="tooltip__txt" id="some_id" role="tooltip"><span class="visually-hidden">Тултип:</span>    Адрес и телефон для корреспонденции, инвесторов. Вопросы о доставке, качестве обслуживания и товара просьба задавать в отдел продаж</span></span></h3><a class="contacts__phone" href="#">+7 800 789 89 89</a><span class="contacts__address">г. Санкт-Петербург, Комсомольская, 43 к1</span>
+            </div>
+            <div class="contacts__item">
+              <h3 class="contacts__subtitle">отдел продаж</h3><a class="contacts__phone" href="#">+7 800 789 89 89</a><span class="contacts__address">г. Санкт-Петербург, Комсомольская, 43 к1</span>
+            </div>
+            <ul class="social list-reset">
+              <li class="social__item"><a class="social__link social__link--vk" href="#" aria-label="Мы во Вконтакте"></a></li>
+              <li class="social__item"><a class="social__link social__link--insta" href="#" aria-label="Мы в Инстаграмм"></a></li>
+            </ul>
+            <div class="contacts__map" id="map"></div>
           </div>
         </div>
       </section>

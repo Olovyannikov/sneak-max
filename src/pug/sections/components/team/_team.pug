@@ -1,0 +1,18 @@
+mixin teamItem(img, name, descr)
+
+    li.team__item
+        img(src='img/' + img alt=name).team__img
+        strong.team__subtitle #{name}
+        span.team__descr #{descr}
+
+section.team
+    img(src='img/team-figure.svg' aria-hidden='true').team__figure
+    .team__container.container
+        h2.title.team__title Наша команда
+        ul.team__list.grid.list-reset
+            +teamItem('team-1.jpg', 'Максим Золотарев', 'Администратор')
+            +teamItem('team-2.jpg', 'Максим Золотарев', 'Администратор')
+            +teamItem('team-3.jpg', 'Максим Золотарев', 'Администратор')
+            +teamItem('team-4.jpg', 'Максим Золотарев', 'Администратор')
+            +teamItem('team-5.jpg', 'Максим Золотарев', 'Администратор')
+            +teamItem('team-6.jpg', 'Максим Золотарев', 'Администратор')

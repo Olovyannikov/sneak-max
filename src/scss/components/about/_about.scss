@@ -19,6 +19,7 @@
     clip-path: polygon(24.5% 0, 100% 0, 75.7% 100%, 0 100%);
     overflow: hidden;
     width: 100%;
+    max-width: 680px;
     height: 580px;
 
     img {
@@ -56,7 +57,7 @@
     justify-content: flex-end;
     font: var(--prehigh-regular);
     font-style: normal;
-    transform: translateX(50px);
+    transform: translateX(-50px);
 
     &::before {
       content: "";

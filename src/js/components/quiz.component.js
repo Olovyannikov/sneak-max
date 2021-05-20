@@ -63,22 +63,14 @@ export const quiz = () => {
             number: 3,
             title: "Уточните какие-либо моменты",
             answer_alias: "message",
-            answers: [{
-                answer_title: "Введите сообщение",
-                type: "text"
-            },
+            answers: [
+                {
+                    answer_title: "Введите сообщение",
+                    type: "textarea"
+                },
             ]
         },
-        {
-            number: 4,
-            title: "Оставьте свой телефон, мы вам перезвоним",
-            answer_alias: "phone",
-            answers: [{
-                answer_title: "Введите телефон",
-                type: "text"
-            },
-            ]
-        }
+
     ];
 
     const quizTemplate = (data = [], dataLength = 0, options) => {
@@ -96,13 +88,25 @@ export const quiz = () => {
                         </label>
                     </li>
                 `;
+            } else if (item.type === 'textarea') {
+                return `
+                    <label class="quiz-question__label">
+                        <textarea placeholder="${item.answer_title}" data-valid="false" class="quiz-question__message" name="${data.answer_alias}" ></textarea>
+                    </label>
+                `;
+            } else {
+                return `
+                    <label class="quiz-question__label">
+                        <input type="${item.type}" data-valid="false" class="quiz-question__answer" name="${data.answer_alias}" ${item.type == 'text' ? 'placeholder="Введите ваш вариант"' : ''} value="${item.type !== 'text' ? item.answer_title : ''}">
+                        <span>${item.answer_title}</span>
+                    </label>
+		        `;
             }
 
 
         });
 
         return `
-		<div class="quiz-questions">
 			<div class="quiz-question">
 				<h3 class="quiz-question__title">${title}</h3>
 				<ul class="quiz-question__answers list-reset">
@@ -113,7 +117,6 @@ export const quiz = () => {
 				    <button type="button" class="quiz-question__btn btn btn-reset btn--thirdly" data-next-btn>${nextBtnText}</button>
                 </div>
 			</div>
-		</div>
 	`
     };
 
@@ -144,11 +147,15 @@ export const quiz = () => {
                     this.$el.innerHTML = quizTemplate(this.data[this.counter], this.dataLength, this.options);
 
                     if ((this.counter + 1 == this.dataLength)) {
-                        this.$el.insertAdjacentHTML('beforeend', `<button type="button" data-send>${this.options.sendBtnText}</button>`)
-                        this.$el.querySelector('[data-next-btn]').remove();
+                        //this.$el.querySelector('.quiz-bottom').insertAdjacentHTML('beforeend', `<button type="button" data-send>${this.options.sendBtnText}</button>`)
+                        //this.$el.querySelector('[data-next-btn]').remove();
+
                     }
                 } else {
                     console.log('А все! конец!');
+                    document.querySelector('.quiz-questions').style.display = 'none';
+                    document.querySelector('.asd').style.display = 'block';
+
                 }
             } else {
                 console.log('Не валидно!')
@@ -184,6 +191,17 @@ export const quiz = () => {
 
         valid() {
             let isValid = false;
+
+            let textarea = this.$el.querySelector('textarea');
+
+            if (textarea) {
+                if (textarea.value.length > 0) {
+                    isValid = true;
+                    return isValid;
+                }
+            }
+
+
             let elements = this.$el.querySelectorAll('input')
             elements.forEach(el => {
                 switch (el.nodeName) {
@@ -262,7 +280,7 @@ export const quiz = () => {
         }
     }
 
-    window.quiz = new Quiz('.quiz-form', quizData, {
+    window.quiz = new Quiz('.quiz-form .quiz-questions', quizData, {
         nextBtnText: "Следующий шаг",
         sendBtnText: "Отправить",
     });

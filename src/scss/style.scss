@@ -17,3 +17,15 @@
 @import "components/sizes/sizes";
 @import "components/about/about";
 @import "components/quiz/quiz";
+@import "components/team/team";
+@import "components/faq/faq";
+@import "components/contacts/contacts";
+
+/* Helpers */
+
+@import "components/accordion/accordion";
+@import "components/social/social";
+
+.asd {
+  display: none;
+}
