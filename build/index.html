@@ -353,11 +353,46 @@
               <li class="social__item"><a class="social__link social__link--vk" href="#" aria-label="Мы во Вконтакте"></a></li>
               <li class="social__item"><a class="social__link social__link--insta" href="#" aria-label="Мы в Инстаграмм"></a></li>
             </ul>
-            <div class="contacts__map" id="map"></div>
+          </div>
+          <div class="contacts__map" id="map"></div>
+        </div>
+      </section>
+      <section class="instagram">
+        <h2 class="visually-hidden">Форма и инстаграм-лента</h2>
+        <div class="container instagram__container">
+          <div class="instagram__left">
+            <form class="callback-form">
+              <h3 class="title instagram__title">Есть вопросы?</h3>
+              <p class="instagram__descr">Заполните форму и наш менеджер свяжется с вами</p>
+              <input class="input instagram__input" type="text" placeholder="Ваше имя"/>
+              <input class="input instagram__input" type="tel" placeholder="Номер телефона"/>
+              <button class="btn btn--primary instagram__btn" type="submit">Отправить</button>
+            </form>
+          </div>
+          <div class="instagram__right"><a class="instagram__link" href="#"><img src="img/instagram.png" alt="Лого инстаграма"/></a>
+            <div class="instagram__content"></div>
           </div>
         </div>
       </section>
     </main>
+    <footer class="footer">
+      <div class="footer__container container">
+        <div class="footer__left"><a class="logo footer__logo">SneakMax</a></div>
+        <div class="footer__right">
+          <nav class="nav footer__nav">
+            <ul class="nav__list list-reset">
+              <li class="nav__item"><a class="nav__link" href="#">Каталог</a></li>
+              <li class="nav__item"><a class="nav__link" href="#">О нас</a></li>
+              <li class="nav__item"><a class="nav__link" href="#">Подбор товара</a></li>
+              <li class="nav__item"><a class="nav__link" href="#">Наша команда</a></li>
+              <li class="nav__item"><a class="nav__link" href="#">Доставка и оплата</a></li>
+              <li class="nav__item"><a class="nav__link" href="#">Контакаты</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&amp;lang=ru_RU"></script>
     <script src="js/script.min.js"></script>
   </body>
 </html>

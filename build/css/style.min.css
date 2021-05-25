@@ -1277,7 +1277,8 @@ a {
   left: 0;
   top: 0;
   z-index: 100;
-  width: 100%; }
+  width: 100%;
+  background-color: var(--color-eastbay); }
   .header__container {
     --paddings: 15px;
     position: relative;
@@ -1698,6 +1699,10 @@ a {
 .contacts {
   padding: var(--big-offset) 0;
   background-color: #f3f6f6; }
+  .contacts__container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between; }
   .contacts__title {
     display: flex;
     align-items: center;
@@ -1717,6 +1722,84 @@ a {
     color: var(--color-main); }
   .contacts__address {
     display: block; }
+  .contacts__map {
+    width: 680px;
+    height: 500px; }
+  .contacts__text {
+    margin-right: var(--second-offset);
+    width: calc(100% - (680px + var(--second-offset))); }
+
+.instagram {
+  padding: var(--big-offset); }
+  .instagram__container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between; }
+  .instagram__left {
+    flex-shrink: 0;
+    margin-right: var(--small-offset);
+    border-radius: 4px;
+    width: 380px;
+    background-color: var(--color-eastbay); }
+  .instagram__title {
+    margin-bottom: var(--second-offset);
+    color: var(--color-white); }
+  .instagram__descr {
+    margin: 0 auto var(--main-offset);
+    max-width: 260px;
+    font: var(--middle-book);
+    text-align: center;
+    color: var(--color-white); }
+  .instagram__input {
+    margin-bottom: var(--small-offset); }
+  .instagram__btn {
+    width: 100%; }
+  .instagram__right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% - (380px + var(--small-offset)));
+    height: 100%; }
+  .instagram__content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 160px);
+    gap: 15px; }
+  .instagram__item {
+    overflow: hidden;
+    border-radius: 4px; }
+    .instagram__item a {
+      display: block;
+      width: 100%;
+      height: 100%; }
+    .instagram__item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover; }
+    .instagram__item:nth-child(2) {
+      grid-row: 2; }
+    .instagram__item:nth-child(3) {
+      grid-column: 2 span;
+      grid-row: 2 span; }
+  .instagram__link {
+    display: inline-block;
+    margin-bottom: var(--second-offset); }
+
+.callback-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--main-offset) var(--second-offset); }
+
+.footer {
+  padding: 28px 0;
+  background-color: var(--color-main); }
+  .footer__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
 
 /* Helpers */
 .faq-accordion {

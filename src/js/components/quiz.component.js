@@ -102,8 +102,6 @@ export const quiz = () => {
                     </label>
 		        `;
             }
-
-
         });
 
         return `

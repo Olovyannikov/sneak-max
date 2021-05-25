@@ -53,6 +53,7 @@
     "webpack-stream": "^6.1.0"
   },
   "dependencies": {
+    "instafeed": "^1.4.0",
     "nouislider": "^15.1.0"
   }
 }
