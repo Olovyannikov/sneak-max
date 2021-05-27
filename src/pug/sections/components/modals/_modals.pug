@@ -24,29 +24,31 @@
                         span.modal-info__vendor Артикул: 879876
                         span.modal-info__quantity В наличии:
                             span 13 шт
-                    h3.modal-info__title Женские кроссовки Puma Force 1 Shadow
-                    .modal-info__rate
-                        img(src='img/star.svg' alt='Рейтинг 5 из 5')
-                        img(src='img/star.svg' alt="")
-                        img(src='img/star.svg' alt="")
-                        img(src='img/star.svg' alt="")
-                        img(src='img/star.svg' alt="")
-                    .modal-info__sizes
-                        span.modal-info__subtitle Выберите размер
-                        ul.list-reset.modal-info__sizes-list.modal-sizes
-                            li.modal-sizes__item
-                                button.modal-sizes__btn.btn-reset 36
-                            li.modal-sizes__item
-                                button.modal-sizes__btn.btn-reset 36
-                            li.modal-sizes__item
-                                button.modal-sizes__btn.btn-reset 36
-                            li.modal-sizes__item
-                                button.modal-sizes__btn.btn-reset 36
-                            li.modal-sizes__item
-                                button.modal-sizes__btn.btn-reset 36
-                    .modal-info__price
-                        span.modal-info__current-price 19 789
-                        span.modal-info__old-price 20 578
+                    .modal-info__wrapper
+
+                        h3.modal-info__title Женские кроссовки Puma Force 1 Shadow
+                        .modal-info__rate
+                            img(src='img/star.svg' alt='Рейтинг 5 из 5')
+                            img(src='img/star.svg' alt="")
+                            img(src='img/star.svg' alt="")
+                            img(src='img/star.svg' alt="")
+                            img(src='img/star.svg' alt="")
+                        .modal-info__sizes
+                            span.modal-info__subtitle Выберите размер
+                            ul.list-reset.modal-info__sizes-list.modal-sizes
+                                li.modal-sizes__item
+                                    button.modal-sizes__btn.btn-reset 36
+                                li.modal-sizes__item
+                                    button.modal-sizes__btn.btn-reset 36
+                                li.modal-sizes__item
+                                    button.modal-sizes__btn.btn-reset 36
+                                li.modal-sizes__item
+                                    button.modal-sizes__btn.btn-reset 36
+                                li.modal-sizes__item
+                                    button.modal-sizes__btn.btn-reset 36
+                        .modal-info__price
+                            span.modal-info__current-price 19 789
+                            span.modal-info__old-price 20 578
                     button.btn.btn-reset.btn--primary.modal-info__order Заказать
                     ul.modal-info__note.modal-note.list-reset
                         li.modal-note__item Бесплатная доставка до двери
@@ -54,17 +56,18 @@
                         li.modal-note__item Обмен в течении двух недель
 
             .prod-modal__bottom
-                .prod-modal__bottom.prod-botom
+                .prod-modal__bottom.prod-bottom
                     .prod-bottom__column
                         h3.prod-bottom__title Описание
-                        p.prod-bottom__descr
+                        p.prod-bottom__descr.modal-prod-descr
                             | Кроссовки Nike Blazer Mid '77 Vintage Suede с винтажной подошвой возрождают стиль баскетбольных моделей Nike прошлого, создавая впечатление, что они хранились в шкафу долгие годы.
                     .prod-bottom__column
                         h3.prod-bottom__title Характеристики
                         .prod-chars
-                            p.prod-bottom__descr.prod-chars__item Пол:Ммужской
+                            p.prod-bottom__descr.prod-chars__item Пол:Мужской
                             p.prod-bottom__descr.prod-chars__item Цвета: Разноцветный
                             p.prod-bottom__descr.prod-chars__item Состав: Кожа, текстиль, резина
                             p.prod-bottom__descr.prod-chars__item Страна: Вьетнам
-                iframe.prod-modal__video( src='https://www.youtube.com/embed/oBAzK89eYgQ'  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+                .prod-modal__video
+                    iframe( src='https://www.youtube.com/embed/oBAzK89eYgQ'  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
 

@@ -3,9 +3,31 @@
   padding: var(--main-offset);
   width: 1140px;
 
+  .modal__close {
+    display: none;
+  }
+
   &__top {
     display: flex;
     justify-content: space-between;
+    margin-bottom: var(--main-offset);
+  }
+
+  &__bottom {
+    margin-bottom: var(--main-offset);
+  }
+
+  &__video {
+    width: 100%;
+    height: 450px;
+
+    iframe {
+      display: block;
+      border: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 }
 
@@ -14,9 +36,9 @@
 
   &__container {
     overflow: hidden;
+    margin-bottom: var(--second-offset);
     width: 100%;
     font-size: 0;
-    margin-bottom: var(--second-offset);
 
     img {
       width: 100%;
@@ -30,8 +52,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: calc(50% - (var(--second-offset) / 2));
   padding-right: var(--big-offset);
+  width: calc(50% - (var(--second-offset) / 2));
 
   &__top {
     display: flex;
@@ -48,17 +70,17 @@
 
   &__quantity {
     span {
-      color: var(--color-main);
       margin-left: var(--small-offset);
+      color: var(--color-main);
     }
   }
 
   &__title {
     margin: 0;
-    font: var(--prehigh-book);
-    color: var(--color-main);
-    line-height: 140%;
     margin-bottom: var(--second-offset);
+    font: var(--prehigh-book);
+    line-height: 140%;
+    color: var(--color-main);
   }
 
   &__rate {
@@ -67,15 +89,12 @@
 
   &__subtitle {
     display: block;
-    font: var(--middle-book);
-    color: var(--main-offset);
-    line-height: 16px;
     margin-bottom: var(--second-offset);
+    font: var(--middle-book);
+    line-height: 16px;
+    color: var(--main-offset);
   }
 
-  &__sizes {
-    margin-bottom: var(--second-offset);
-  }
 
   &__price {
     display: flex;
@@ -85,19 +104,19 @@
   &__current-price {
     margin-right: 32px;
     font: var(--middle-high-bold);
-    color: var(--color-main);
     line-height: 30px;
+    color: var(--color-main);
   }
 
   &__old-price {
     font: var(--middle-book);
-    color: var(--color-gray);
     line-height: 16px;
+    color: var(--color-gray);
   }
 
   &__order {
-    width: 100%;
     margin-top: auto;
+    width: 100%;
   }
 }
 
@@ -107,17 +126,23 @@
   align-items: center;
 
   &__item {
+    margin-bottom: var(--second-offset);
+
     &:not(:last-child) {
       margin-right: var(--second-offset);
     }
   }
 
   &__btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid var(--color-gray);
     border-radius: 4px;
+    padding: 6px 0;
+    width: 70px;
     font: var(--small-book);
     color: var(--color-main);
-    padding: 6px 27px;
   }
 }
 
@@ -129,8 +154,8 @@
   &__item {
     border-radius: 4px;
     height: 75px;
+    transition: 0.3s;
     cursor: pointer;
-    transition: .3s;
 
     img {
       width: 100%;
@@ -141,16 +166,22 @@
     &:hover {
       opacity: 0.7;
     }
+
+    &--active {
+      pointer-events: none;
+      opacity: 0.7;
+    }
   }
 }
 
 .modal-note {
   margin-top: var(--second-offset);
+
   &__item {
     padding-left: 25px;
     font: var(--small-book);
     color: var(--color-gray);
-    background-image: url('../img/checklist.svg');
+    background-image: url("../img/checklist.svg");
     background-position: center left;
     background-size: 15px 12px;
     background-repeat: no-repeat;
@@ -158,5 +189,29 @@
     &:not(:last-child) {
       margin-bottom: var(--small-offset);
     }
+  }
+}
+
+.prod-bottom {
+  display: flex;
+
+  &__column {
+    width: calc(50% - (var(--second-offset) / 2));
+    &:first-child {
+      margin-right: var(--second-offset);
+    }
+  }
+
+  &__title {
+    margin: 0 0 var(--second-offset);
+    font: var(--prehigh-book);
+    color: var(--color-main);
+  }
+
+  &__descr {
+    margin: 0;
+    width: 450px;
+    font: var(--middle-book);
+    color: var(--color-main);
   }
 }

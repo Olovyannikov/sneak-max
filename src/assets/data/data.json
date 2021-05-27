@@ -5,9 +5,9 @@
     "price":7490,
     "mainImage":"./data/images/1/1.webp",
     "gallery":[
-      "./data/images/1/1.webp",
-      "./data/images/1/2.webp",
-      "./data/images/1/3.webp"
+      "./assets/data/images/1/1.webp",
+      "./assets/data/images/1/2.webp",
+      "./assets/data/images/1/3.webp"
     ],
     "sizes":[
       8,
@@ -31,9 +31,9 @@
     "price":8500,
     "mainImage":"./data/images/2/1.webp",
     "gallery":[
-      "./data/images/2/1.webp",
-      "./data/images/2/2.webp",
-      "./data/images/2/3.webp"
+      "./assets/data/images/2/1.webp",
+      "./assets/data/images/2/2.webp",
+      "./assets/data/images/2/3.webp"
     ],
     "sizes":[
       4,
@@ -57,8 +57,8 @@
     "price":8490,
     "mainImage":"./data/images/3/1.webp",
     "gallery":[
-      "./data/images/3/1.webp",
-      "./data/images/3/2.webp"
+      "./assets/data/images/3/1.webp",
+      "./assets/data/images/3/2.webp"
     ],
     "sizes":[
       8,
@@ -77,11 +77,11 @@
     "price":11000,
     "mainImage":"./data/images/4/1.webp",
     "gallery":[
-      "./data/images/4/1.webp",
-      "./data/images/4/2.webp",
-      "./data/images/4/3.webp",
-      "./data/images/4/4.webp",
-      "./data/images/4/5.webp"
+      "./assets/data/images/4/1.webp",
+      "./assets/data/images/4/2.webp",
+      "./assets/data/images/4/3.webp",
+      "./assets/data/images/4/4.webp",
+      "./assets/data/images/4/5.webp"
     ],
     "sizes":[
       9.5,
@@ -101,9 +101,9 @@
     "price":8490,
     "mainImage":"./data/images/5/1.webp",
     "gallery":[
-      "./data/images/5/1.webp",
-      "./data/images/5/2.webp",
-      "./data/images/5/3.webp"
+      "./assets/data/images/5/1.webp",
+      "./assets/data/images/5/2.webp",
+      "./assets/data/images/5/3.webp"
     ],
     "sizes":[
       9.5,
@@ -123,9 +123,9 @@
     "price":9990,
     "mainImage":"./data/images/6/1.webp",
     "gallery":[
-      "./data/images/6/1.webp",
-      "./data/images/6/2.webp",
-      "./data/images/6/3.webp"
+      "./assets/data/images/6/1.webp",
+      "./assets/data/images/6/2.webp",
+      "./assets/data/images/6/3.webp"
     ],
     "sizes":[
       9.5,
@@ -145,9 +145,9 @@
     "price":6990,
     "mainImage":"./data/images/7/1.webp",
     "gallery":[
-      "./data/images/7/1.webp",
-      "./data/images/7/2.webp",
-      "./data/images/7/3.webp"
+      "./assets/data/images/7/1.webp",
+      "./assets/data/images/7/2.webp",
+      "./assets/data/images/7/3.webp"
     ],
     "sizes":[
       8,
@@ -168,9 +168,9 @@
     "price":9990,
     "mainImage":"./data/images/8/1.webp",
     "gallery":[
-      "./data/images/8/1.webp",
-      "./data/images/8/2.webp",
-      "./data/images/8/3.webp"
+      "./assets/data/images/8/1.webp",
+      "./assets/data/images/8/2.webp",
+      "./assets/data/images/8/3.webp"
     ],
     "sizes":[
       8,
@@ -191,10 +191,10 @@
     "price":11000,
     "mainImage":"./data/images/9/1.webp",
     "gallery":[
-      "./data/images/9/1.webp",
-      "./data/images/9/2.webp",
-      "./data/images/9/3.webp",
-      "./data/images/9/4.webp"
+      "./assets/data/images/9/1.webp",
+      "./assets/data/images/9/2.webp",
+      "./assets/data/images/9/3.webp",
+      "./assets/data/images/9/4.webp"
     ],
     "sizes":[
       15
@@ -212,9 +212,9 @@
     "price":7490,
     "mainImage":"./data/images/1/1.webp",
     "gallery":[
-      "./data/images/1/1.webp",
-      "./data/images/1/2.webp",
-      "./data/images/1/3.webp"
+      "./assets/data/images/1/1.webp",
+      "./assets/data/images/1/2.webp",
+      "./assets/data/images/1/3.webp"
     ],
     "sizes":[
       8,
@@ -238,9 +238,9 @@
     "price":8500,
     "mainImage":"./data/images/2/1.webp",
     "gallery":[
-      "./data/images/2/1.webp",
-      "./data/images/2/2.webp",
-      "./data/images/2/3.webp"
+      "./assets/data/images/2/1.webp",
+      "./assets/data/images/2/2.webp",
+      "./assets/data/images/2/3.webp"
     ],
     "sizes":[
       4,
