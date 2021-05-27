@@ -14,7 +14,6 @@ const instagram = () => {
                 let newArray = instaArray.slice(0, 5);
 
                 for (let item of newArray) {
-                    console.log(item.node);
 
                     let element = item.node;
                     insta.insertAdjacentHTML('afterbegin', `

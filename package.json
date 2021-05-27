@@ -53,7 +53,9 @@
     "webpack-stream": "^6.1.0"
   },
   "dependencies": {
+    "clamp-js": "^0.7.0",
     "instafeed": "^1.4.0",
-    "nouislider": "^15.1.0"
+    "nouislider": "^15.1.0",
+    "swiper": "^6.6.2"
   }
 }

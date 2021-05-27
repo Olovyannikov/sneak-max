@@ -1,0 +1,70 @@
+.modal
+    .modal__container.prod-modal(role='dialog' aria-modal='true' data-graph-target='prod-modal')
+        button.btn-reset.modal__close(aria-label='Закрыть модальное окно')
+        .modal-content
+            .prod-modal__top
+                .modal-slider
+                    .modal-slider__container
+                        .swiper-wrapper
+                            .swiper-slide
+                                img(src='img/image.jpeg')
+                            .swiper-slide
+                                img(src='img/image.jpeg')
+                            .swiper-slide
+                                img(src='img/image.jpeg')
+                    .modal-slider__preview.modal-preview
+                        .modal-preview__item
+                            img(src='img/image.jpeg' data-index='0')
+                        .modal-preview__item
+                            img(src='img/image.jpeg' data-index='1')
+                        .modal-preview__item
+                            img(src='img/image.jpeg' data-index='2')
+                .modal-info
+                    .modal-info__top
+                        span.modal-info__vendor Артикул: 879876
+                        span.modal-info__quantity В наличии:
+                            span 13 шт
+                    h3.modal-info__title Женские кроссовки Puma Force 1 Shadow
+                    .modal-info__rate
+                        img(src='img/star.svg' alt='Рейтинг 5 из 5')
+                        img(src='img/star.svg' alt="")
+                        img(src='img/star.svg' alt="")
+                        img(src='img/star.svg' alt="")
+                        img(src='img/star.svg' alt="")
+                    .modal-info__sizes
+                        span.modal-info__subtitle Выберите размер
+                        ul.list-reset.modal-info__sizes-list.modal-sizes
+                            li.modal-sizes__item
+                                button.modal-sizes__btn.btn-reset 36
+                            li.modal-sizes__item
+                                button.modal-sizes__btn.btn-reset 36
+                            li.modal-sizes__item
+                                button.modal-sizes__btn.btn-reset 36
+                            li.modal-sizes__item
+                                button.modal-sizes__btn.btn-reset 36
+                            li.modal-sizes__item
+                                button.modal-sizes__btn.btn-reset 36
+                    .modal-info__price
+                        span.modal-info__current-price 19 789
+                        span.modal-info__old-price 20 578
+                    button.btn.btn-reset.btn--primary.modal-info__order Заказать
+                    ul.modal-info__note.modal-note.list-reset
+                        li.modal-note__item Бесплатная доставка до двери
+                        li.modal-note__item Оплата заказа при получении
+                        li.modal-note__item Обмен в течении двух недель
+
+            .prod-modal__bottom
+                .prod-modal__bottom.prod-botom
+                    .prod-bottom__column
+                        h3.prod-bottom__title Описание
+                        p.prod-bottom__descr
+                            | Кроссовки Nike Blazer Mid '77 Vintage Suede с винтажной подошвой возрождают стиль баскетбольных моделей Nike прошлого, создавая впечатление, что они хранились в шкафу долгие годы.
+                    .prod-bottom__column
+                        h3.prod-bottom__title Характеристики
+                        .prod-chars
+                            p.prod-bottom__descr.prod-chars__item Пол:Ммужской
+                            p.prod-bottom__descr.prod-chars__item Цвета: Разноцветный
+                            p.prod-bottom__descr.prod-chars__item Состав: Кожа, текстиль, резина
+                            p.prod-bottom__descr.prod-chars__item Страна: Вьетнам
+                iframe.prod-modal__video( src='https://www.youtube.com/embed/oBAzK89eYgQ'  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+

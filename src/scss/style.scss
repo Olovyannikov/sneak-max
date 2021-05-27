@@ -3,6 +3,7 @@
 @import "general/variables";
 @import "vendor/normalize";
 @import "vendor/swiper";
+@import "vendor/modal";
 @import "vendor/nouislider";
 @import "general/scaffoldings";
 
@@ -21,6 +22,7 @@
 @import "components/faq/faq";
 @import "components/contacts/contacts";
 @import "components/instagram/instagram";
+@import "components/prod-modal/prod-modal";
 @import "components/footer/footer";
 
 /* Helpers */
