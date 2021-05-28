@@ -119,7 +119,6 @@ const products = () => {
 
                             prodModalSlider.innerHTML = slides.join(' ');
                             prodModalPreview.innerHTML = preview.join(' ');
-
                             prodModalInfo.innerHTML = `
                                     <h3 class="modal-info__title">${dataItem.title}</h3>
                                     <div class="modal-info__rate">
@@ -190,7 +189,7 @@ const products = () => {
                 })
         }
 
-        catalogMore.addEventListener('click', (e) => {
+        catalogMore.addEventListener('click', () => {
             prodQuantity = prodQuantity + 3;
 
             loadProducts(prodQuantity);

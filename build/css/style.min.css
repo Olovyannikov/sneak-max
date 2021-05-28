@@ -726,6 +726,200 @@ button.swiper-pagination-bullet {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden; }
 
+[data-simplebar] {
+  position: relative;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-content: flex-start; }
+
+.simplebar-wrapper {
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  max-width: inherit;
+  max-height: inherit; }
+
+.simplebar-mask {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: auto !important;
+  height: auto !important;
+  direction: inherit; }
+
+.simplebar-offset {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit !important;
+  direction: inherit !important;
+  resize: none !important;
+  -webkit-overflow-scrolling: touch; }
+
+.simplebar-content-wrapper {
+  position: relative;
+  display: block;
+  width: auto;
+  height: 100%;
+  /* Required for horizontal native scrollbar to not appear if parent is taller than natural height */
+  max-width: 100%;
+  /* Not required for horizontal scroll to trigger */
+  max-height: 100%;
+  /* Needed for vertical scroll to trigger */
+  box-sizing: border-box !important;
+  direction: inherit;
+  -ms-overflow-style: none;
+  scrollbar-width: none; }
+
+.simplebar-content-wrapper::-webkit-scrollbar,
+.simplebar-hide-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0; }
+
+.simplebar-content::before,
+.simplebar-content::after {
+  content: " ";
+  display: table; }
+
+.simplebar-placeholder {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  pointer-events: none; }
+
+.simplebar-height-auto-observer-wrapper {
+  position: relative;
+  z-index: -1;
+  flex-grow: inherit;
+  flex-shrink: 0;
+  flex-basis: 0;
+  float: left;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 1px;
+  max-height: 1px;
+  box-sizing: inherit !important;
+  pointer-events: none; }
+
+.simplebar-height-auto-observer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  display: block;
+  overflow: hidden;
+  width: 1000%;
+  height: 1000%;
+  min-width: 1px;
+  min-height: 1px;
+  box-sizing: inherit;
+  opacity: 0;
+  pointer-events: none; }
+
+.simplebar-track {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none; }
+
+[data-simplebar].simplebar-dragging .simplebar-content {
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  user-select: none; }
+
+[data-simplebar].simplebar-dragging .simplebar-track {
+  pointer-events: all; }
+
+.simplebar-scrollbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  min-height: 10px; }
+
+.simplebar-scrollbar::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  border-radius: 7px;
+  background: black;
+  opacity: 0;
+  transition: opacity 0.2s linear; }
+
+.simplebar-scrollbar.simplebar-visible::before {
+  /* When hovered, remove all transitions from drag handle */
+  opacity: 0.5;
+  transition: opacity 0s linear; }
+
+.simplebar-track.simplebar-vertical {
+  top: 0;
+  width: 11px; }
+
+.simplebar-track.simplebar-vertical .simplebar-scrollbar::before {
+  top: 2px;
+  bottom: 2px; }
+
+.simplebar-track.simplebar-horizontal {
+  left: 0;
+  height: 11px; }
+
+.simplebar-track.simplebar-horizontal .simplebar-scrollbar::before {
+  left: 2px;
+  right: 2px;
+  height: 100%; }
+
+.simplebar-track.simplebar-horizontal .simplebar-scrollbar {
+  left: 0;
+  right: auto;
+  top: 2px;
+  width: auto;
+  height: 7px;
+  min-width: 10px;
+  min-height: 0; }
+
+/* Rtl support */
+[data-simplebar-direction="rtl"] .simplebar-track.simplebar-vertical {
+  left: 0;
+  right: auto; }
+
+.hs-dummy-scrollbar-size {
+  position: fixed;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  width: 500px;
+  height: 500px;
+  direction: rtl;
+  opacity: 0;
+  visibility: hidden; }
+
+.simplebar-hide-scrollbar {
+  position: fixed;
+  left: 0;
+  overflow-y: scroll;
+  visibility: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none; }
+
 .disable-scroll {
   position: relative;
   overflow: hidden;
@@ -1399,6 +1593,7 @@ a {
   color: var(--color-white); }
 
 .cart {
+  position: relative;
   margin-left: var(--main-offset); }
   .cart__btn {
     position: relative;
@@ -1409,7 +1604,8 @@ a {
       width: 100%;
       height: 100%;
       -o-object-fit: cover;
-      object-fit: cover; }
+      object-fit: cover;
+      pointer-events: none; }
   .cart__count {
     position: absolute;
     right: -6px;
@@ -1422,7 +1618,56 @@ a {
     min-width: 16px;
     font: var(--small-book);
     color: var(--color-white);
-    background-color: var(--color-accent); }
+    background-color: var(--color-accent);
+    pointer-events: none; }
+
+.mini-cart {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 22px);
+  width: 480px;
+  box-shadow: 0 -4px 10px rgba(0, 13, 84, 0.1);
+  background-color: var(--color-white);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; }
+  .mini-cart__top {
+    max-height: 323px; }
+    .mini-cart__top .simplebar-track.simplebar-vertical {
+      right: 5px;
+      top: 20px;
+      bottom: 20px;
+      border-radius: 5px;
+      width: 4px;
+      background-color: rgba(77, 77, 77, 0.1); }
+    .mini-cart__top .simplebar-scrollbar::before {
+      left: 0;
+      right: auto;
+      border-radius: 5px;
+      width: 4px;
+      background-color: rgba(77, 77, 77, 0.2);
+      opacity: 1; }
+  .mini-cart__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--second-offset);
+    box-shadow: 0 -4px 10px rgba(0, 13, 84, 0.1);
+    background-color: var(--color-white); }
+  .mini-cart__txt {
+    display: block;
+    margin-bottom: var(--small-offset); }
+  .mini-cart__sum {
+    font: var(--prehigh-regular);
+    font-weight: 700;
+    color: #4d4d4d; }
+  .mini-cart__btn {
+    padding-top: 14px;
+    padding-bottom: 14px; }
+  .mini-cart--visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; }
 
 .hero {
   position: relative;
@@ -1575,9 +1820,6 @@ a {
 .product {
   overflow: hidden;
   border-radius: 4px; }
-  .product:hover .product__buttons {
-    opacity: 1;
-    visibility: visible; }
   .product__buttons {
     position: absolute;
     left: 0;
@@ -1621,16 +1863,60 @@ a {
       -o-object-fit: cover;
       object-fit: cover; }
   .product__title {
+    display: box;
+    overflow: hidden;
     margin: 0 0 var(--small-offset);
     font: var(--middle-book);
     color: var(--color-main);
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden; }
+    box-orient: vertical;
+    -webkit-line-clamp: 1; }
   .product__price {
     font: var(--prehigh-regular);
     color: var(--color-main); }
+  .product:hover .product__buttons {
+    opacity: 1;
+    visibility: visible; }
+
+.mini-product {
+  display: flex;
+  align-items: center;
+  padding: var(--small-offset) var(--second-offset); }
+  .mini-product__image {
+    flex-shrink: 0;
+    margin-right: var(--small-offset);
+    width: 100px;
+    height: 100px; }
+    .mini-product__image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover; }
+  .mini-product__content {
+    display: flex;
+    flex-grow: 1;
+    align-items: center; }
+  .mini-product__text {
+    margin-right: auto;
+    max-width: 268px; }
+  .mini-product__title {
+    margin: 0 0 14px;
+    font: var(--small-book);
+    line-height: 20px;
+    color: var(--color-main); }
+  .mini-product__price {
+    font: var(--prehigh-regular);
+    font-weight: 700;
+    color: #4d4d4d; }
+  .mini-product__delete {
+    width: 20px;
+    height: 20px; }
+    .mini-product__delete svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover; }
 
 .sizes-table {
   border-collapse: collapse;

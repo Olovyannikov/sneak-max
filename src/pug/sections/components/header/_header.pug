@@ -22,3 +22,47 @@ header.header.fix-block
                     svg
                         use(href='img/sprite.svg#cart')
                     .cart__count 1
+                .mini-cart
+                    .mini-cart__top(data-simplebar)
+                        ul.mini-cart__list.list-reset
+                            li.mini-cart__item
+                                article.mini-cart__product.mini-product
+                                    .mini-product__image
+                                        img(src='img/image.jpeg' alt='')
+                                    .mini-product__content
+                                        .mini-product__text
+                                            h3.mini-product__title
+                                                | Женские кроссовки Puma Force 1 Shadow
+                                            span.mini-product__price 8 678 р
+                                        button.btn-reset.mini-product__delete(aria-label='Удалить товар')
+                                            svg
+                                                use(href='img/sprite.svg#trash')
+                            li.mini-cart__item
+                                article.mini-cart__product.mini-product
+                                    .mini-product__image
+                                        img(src='img/image.jpeg' alt='')
+                                    .mini-product__content
+                                        .mini-product__text
+                                            h3.mini-product__title
+                                                | Женские кроссовки Puma Force 1 Shadow
+                                            span.mini-product__price 8 678 р
+                                        button.btn-reset.mini-product__delete(aria-label='Удалить товар')
+                                            svg
+                                                use(href='img/sprite.svg#trash')
+                            li.mini-cart__item
+                                article.mini-cart__product.mini-product
+                                    .mini-product__image
+                                        img(src='img/image.jpeg' alt='')
+                                    .mini-product__content
+                                        .mini-product__text
+                                            h3.mini-product__title
+                                                | Женские кроссовки Puma Force 1 Shadow
+                                            span.mini-product__price 8 678 р
+                                        button.btn-reset.mini-product__delete(aria-label='Удалить товар')
+                                            svg
+                                                use(href='img/sprite.svg#trash')
+                    .mini-cart__bottom
+                        .mini-cart__total
+                            span.mini-cart__txt Итого:
+                            span.mini-cart__sum 25 789 р
+                        button.btn-reset.btn.btn--primary.mini-cart__btn Оформить заказ
