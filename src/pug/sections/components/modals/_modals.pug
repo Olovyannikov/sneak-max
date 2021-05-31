@@ -71,3 +71,37 @@
                 .prod-modal__video
                     iframe( src='https://www.youtube.com/embed/oBAzK89eYgQ'  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
 
+    .modal__container.cart-modal(role='dialog' aria-modal='true' data-graph-target='cart-modal')
+        button.btn-reset.modal__close(aria-label='Закрыть модальное окно')
+        .modal-content
+            .cart-modal__top
+                h2.cart-modal__title Оформление заказа
+                span.cart-modal__order-number Заказ 345667
+            .cart-modal-order
+                .cart-modal-order__top
+                    .cart-modal-order__quantity Товаров в заказе:
+                        span 3 шт
+                    .cart-modal-order__sum Общая сумма заказа:
+                        span 25 789 р
+                    .cart-modal-order__content
+                        button.btn-reset.cart-modal-order__show Состав заказа
+                            svg
+                                use(href='img/sprite.svg#chevron')
+                    ul.cart-modal-order__list.list-reset
+                        li.cart-modal-order__item
+                            article.cart-modal-order__product.cart-modal-product
+                                .cart-modal-product__image
+                                    img(src='img/image.jpeg' alt='')
+                                .cart-modal-product__content
+                                    .cart-modal-product__text
+                                        h3.mini-product__title
+                                            | Женские кроссовки Puma Force 1 Shadow
+                                        span.cart-modal-product__price 8 678 р
+                                    button.btn-reset.cart-modal-product__delete(aria-label='Удалить товар')
+                                        | Удалить
+
+            form.cart-modal__form
+                input.input.cart-modal__input(name='name' type='text' placeholder='Ваше имя')
+                input.input.cart-modal__input(name='tel' type='tel' placeholder='Номер телефона')
+                input.input.cart-modal__input(name='email' type='email' placeholder='E-mail')
+                button.btn.btn--primary.cart-modal__btn Оформить заказ

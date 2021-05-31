@@ -48,7 +48,7 @@ const products = () => {
                                                         <use href="img/sprite.svg#show"></use>
                                                     </svg>
                                                 </button>
-                                                <button class="product__btn btn-reset"  aria-label="Положить товар в корзину">
+                                                <button class="product__btn btn-reset" data-id="${item.id}"  aria-label="Положить товар в корзину">
                                                     <svg>
                                                         <use href="img/sprite.svg#cart"></use>
                                                     </svg>
@@ -64,13 +64,19 @@ const products = () => {
                     }
                 })
                 .then(() => {
+
+                    cartLogic();
+
                     const modal = new GraphModal({
                         isOpen: (modal) => {
-                            const openBtnId = modal.previousActiveElement.dataset.id;
 
-                            loadModalData(openBtnId);
+                            if (modal.modalContainer.classList.contains('prod-modal')) {
+                                const openBtnId = modal.previousActiveElement.dataset.id;
 
-                            prodSlider.update();
+                                loadModalData(openBtnId);
+
+                                prodSlider.update();
+                            }
                         }
                     });
                 })
@@ -151,7 +157,7 @@ const products = () => {
 
                             prodChars.innerHTML = charsItems;
 
-                            if(dataItem.video) {
+                            if (dataItem.video) {
                                 prodModalVideo.style.display = 'block';
                                 prodModalVideo.innerHTML = `
                             <iframe src="${dataItem.video}"
@@ -178,7 +184,7 @@ const products = () => {
 
                     document.querySelectorAll('.modal-preview__item').forEach(el => {
                         el.addEventListener('click', (e) => {
-                            const idx =  +e.currentTarget.dataset.index;
+                            const idx = +e.currentTarget.dataset.index;
                             document.querySelectorAll('.modal-preview__item').forEach(el => {
                                 el.classList.remove('modal-preview__item--active')
                             })
@@ -202,6 +208,67 @@ const products = () => {
         })
     }
 
+    /* Cart */
+    let price = 0;
+    const miniCartList = document.querySelector('.mini-cart__list');
+    const fullPrice = document.querySelector('.mini-cart__sum');
+
+    const priceWithoutSpaces = str => str.replace(/\s/g, '');
+    const plusFullPrice = currentPrice => price += currentPrice;
+    const minusFullPrice = currentPrice => price -= currentPrice;
+    const printFullPrice = () => fullPrice.textContent = `${normalPrice(price)} р`
+
+    const loadCartData = (id = 1) => {
+        fetch('../assets/data/data.json')
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                for (let dataItem of data) {
+                    if (dataItem.id == id) {
+                        console.log(dataItem);
+                        miniCartList.insertAdjacentHTML('afterbegin', `
+                            <li class="mini-cart__item" data-id="${dataItem.id}">
+                                <article class="mini-cart__product mini-product">
+                                    <div class="mini-product__image"><img src="assets/${dataItem.mainImage}" alt="${dataItem.title}" /></div>
+                                    <div class="mini-product__content">
+                                        <div class="mini-product__text">
+                                            <h3 class="mini-product__title">${dataItem.title}</h3>
+                                            <span class="mini-product__price">${normalPrice(dataItem.price)} р</span>
+                                        </div>
+                                        <button class="btn-reset mini-product__delete" aria-label="Удалить товар">
+                                            <svg>
+                                                <use href="img/sprite.svg#trash"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </article>
+                            </li>
+                        `);
+
+                        return dataItem
+                    }
+                }
+            })
+            .then((item) => {
+                console.log(item)
+
+                plusFullPrice(item.price);
+                printFullPrice();
+            })
+    }
+
+    const cartLogic = () => {
+        const productBtn = document.querySelectorAll('.product__btn');
+        productBtn.forEach(el => {
+            el.addEventListener('click', (e) => {
+                const id = e.currentTarget.dataset.id;
+                loadCartData(id);
+
+                e.currentTarget.classList.add('product__btn--disabled')
+            })
+        })
+    }
 }
 
 export default products;

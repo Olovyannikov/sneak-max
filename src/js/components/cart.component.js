@@ -4,13 +4,24 @@ const cart = () => {
 
     cartBtn.addEventListener('click', () => {
         miniCart.classList.add('mini-cart--visible');
+
+        let div = document.createElement('div');
+        div.style.position = 'absolute';
+        div.style.left = '0';
+        div.style.right = '0';
+        div.style.top = '0';
+        div.style.bottom = '0';
+        div.classList.add('overlay');
+        document.body.appendChild(div);
     });
 
     document.addEventListener('click', (e) => {
-        if (!e.target.classList.contains('mini-cart') && !e.target.classList.contains('cart__btn')) {
+        if (e.target.classList.contains('overlay') || e.target.classList.contains('mini-cart__btn')) {
             miniCart.classList.remove('mini-cart--visible');
+            document.querySelector('.overlay').remove();
         }
-    })
+    });
+
 }
 
 export default cart;

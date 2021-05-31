@@ -1610,13 +1610,17 @@ a {
     position: absolute;
     right: -6px;
     bottom: -6px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    height: 16px;
+    padding-top: 2px;
+    padding-right: 4px;
+    padding-left: 4px;
+    height: 17px;
     min-width: 16px;
     font: var(--small-book);
+    text-align: center;
     color: var(--color-white);
     background-color: var(--color-accent);
     pointer-events: none; }
@@ -1851,6 +1855,9 @@ a {
       background-color: var(--color-main-hover); }
     .product__btn:first-child {
       margin-right: var(--main-offset); }
+    .product__btn--disabled {
+      opacity: 0.4;
+      pointer-events: none; }
   .product__image {
     position: relative;
     margin-bottom: var(--small-offset);
@@ -1864,11 +1871,13 @@ a {
       object-fit: cover; }
   .product__title {
     display: box;
+    display: -webkit-box;
     overflow: hidden;
     margin: 0 0 var(--small-offset);
     font: var(--middle-book);
     color: var(--color-main);
     box-orient: vertical;
+    -webkit-box-orient: vertical;
     -webkit-line-clamp: 1; }
   .product__price {
     font: var(--prehigh-regular);
@@ -2321,6 +2330,103 @@ a {
     width: 450px;
     font: var(--middle-book);
     color: var(--color-main); }
+
+.cart-modal {
+  border-radius: 4px;
+  padding: var(--main-offset);
+  width: 580px; }
+  .cart-modal .modal__close {
+    display: none; }
+  .cart-modal__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--main-offset); }
+  .cart-modal__title {
+    margin: 0;
+    font: var(--prehigh-regular);
+    font-weight: 700;
+    color: var(--color-main); }
+  .cart-modal__order-number {
+    font: var(--small-book);
+    line-height: 14px;
+    color: var(--color-gray); }
+  .cart-modal__input {
+    color: var(--color-gray);
+    background-color: #f6f6f6; }
+    .cart-modal__input:not(:last-child) {
+      margin-bottom: var(--small-offset); }
+
+.cart-modal-order {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 30px;
+  margin-bottom: var(--main-offset); }
+  .cart-modal-order__top {
+    font: var(--middle-book);
+    line-height: 14px;
+    color: var(--color-gray); }
+  .cart-modal-order__quantity {
+    margin-bottom: var(--second-offset); }
+    .cart-modal-order__quantity span {
+      margin-left: var(--small-offset);
+      font-weight: 700;
+      color: var(--color-main); }
+  .cart-modal-order__sum {
+    margin-bottom: var(--second-offset); }
+    .cart-modal-order__sum span {
+      margin-left: var(--small-offset);
+      font-weight: 700;
+      color: var(--color-main); }
+  .cart-modal-order__item:not(:last-child) {
+    margin-bottom: 14px; }
+  .cart-modal-order__show {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: var(--second-offset);
+    color: var(--color-main); }
+    .cart-modal-order__show svg {
+      margin-left: 5px;
+      width: 7px;
+      height: 7px;
+      fill: currentColor;
+      -o-object-fit: cover;
+      object-fit: cover; }
+
+.cart-modal-product {
+  display: flex;
+  align-items: center; }
+  .cart-modal-product__image {
+    flex-shrink: 0;
+    margin-right: var(--small-offset);
+    width: 80px;
+    height: 45px; }
+    .cart-modal-product__image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover; }
+  .cart-modal-product__content {
+    display: flex;
+    flex-grow: 1;
+    align-items: center; }
+  .cart-modal-product__text {
+    margin-right: auto;
+    max-width: 290px; }
+  .cart-modal-product__title {
+    margin: 0 0 var(--small-offset);
+    font: var(--small-book);
+    line-height: 20px;
+    color: var(--color-main); }
+  .cart-modal-product__price {
+    font: var(--prehigh-regular);
+    font-weight: 700;
+    color: #4d4d4d; }
+  .cart-modal-product__delete {
+    font: var(--small-book);
+    line-height: 14px;
+    color: var(--color-gray); }
 
 .footer {
   padding: 28px 0;

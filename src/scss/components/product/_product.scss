@@ -40,6 +40,11 @@
     &:first-child {
       margin-right: var(--main-offset);
     }
+
+    &--disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
   }
 
   &__image {
@@ -58,11 +63,13 @@
 
   &__title {
     display: box;
+    display: -webkit-box;
     overflow: hidden;
     margin: 0 0 var(--small-offset);
     font: var(--middle-book);
     color: var(--color-main);
     box-orient: vertical;
+    -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
   }
 
