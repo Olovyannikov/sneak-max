@@ -48,7 +48,7 @@ const products = () => {
                                                         <use href="img/sprite.svg#show"></use>
                                                     </svg>
                                                 </button>
-                                                <button class="product__btn btn-reset" data-id="${item.id}"  aria-label="Положить товар в корзину">
+                                                <button class="product__btn js-cart btn-reset" data-id="${item.id}"  aria-label="Положить товар в корзину">
                                                     <svg>
                                                         <use href="img/sprite.svg#cart"></use>
                                                     </svg>
@@ -212,11 +212,13 @@ const products = () => {
     let price = 0;
     const miniCartList = document.querySelector('.mini-cart__list');
     const fullPrice = document.querySelector('.mini-cart__sum');
+    const cartCount = document.querySelector('.cart__count');
 
     const priceWithoutSpaces = str => str.replace(/\s/g, '');
     const plusFullPrice = currentPrice => price += currentPrice;
     const minusFullPrice = currentPrice => price -= currentPrice;
-    const printFullPrice = () => fullPrice.textContent = `${normalPrice(price)} р`
+    const printFullPrice = () => fullPrice.textContent = `${normalPrice(price)} р`;
+    const printQuantity = (num) => cartCount.textContent = num;
 
     const loadCartData = (id = 1) => {
         fetch('../assets/data/data.json')
@@ -226,7 +228,6 @@ const products = () => {
             .then((data) => {
                 for (let dataItem of data) {
                     if (dataItem.id == id) {
-                        console.log(dataItem);
                         miniCartList.insertAdjacentHTML('afterbegin', `
                             <li class="mini-cart__item" data-id="${dataItem.id}">
                                 <article class="mini-cart__product mini-product">
@@ -251,10 +252,11 @@ const products = () => {
                 }
             })
             .then((item) => {
-                console.log(item)
-
                 plusFullPrice(item.price);
                 printFullPrice();
+                let num = document.querySelectorAll('.mini-cart__item').length;
+                cartCount.classList.add(num > 0 ? 'cart__count--visible' : '');
+                printQuantity(num);
             })
     }
 
@@ -264,9 +266,29 @@ const products = () => {
             el.addEventListener('click', (e) => {
                 const id = e.currentTarget.dataset.id;
                 loadCartData(id);
-
                 e.currentTarget.classList.add('product__btn--disabled')
             })
+        })
+
+        miniCartList.addEventListener('click', (e) => {
+            if (e.target.classList.contains('mini-product__delete')) {
+
+                const self = e.target;
+                const parent = self.closest('.mini-cart__item');
+                let price = parseInt(priceWithoutSpaces(parent.querySelector('.mini-product__price').textContent));
+                const id = parent.dataset.id;
+
+                document.querySelector(`.js-cart[data-id="${id}"]`).classList.remove('product__btn--disabled')
+                parent.remove();
+
+                minusFullPrice(price);
+                printFullPrice();
+
+                let num = document.querySelectorAll('.mini-cart__item').length;
+                cartCount.textContent = num.toString();
+                cartCount.classList.remove(num === 0 ? 'cart__count--visible' : '');
+                printQuantity(num);
+            }
         })
     }
 }
