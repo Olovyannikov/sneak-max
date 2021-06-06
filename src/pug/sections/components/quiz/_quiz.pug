@@ -6,4 +6,15 @@ section.quiz
             p.quiz__descr Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями
             form.quiz-form
                 .quiz-questions
-                .asd asda
+                .last-question
+                    .last-question__form
+                        h3.last-question__title
+                            | Получить предложение
+                        p.last-question__descr
+                            | Получите подборку подходящих для вас моделей на почту
+                        input(type='text' placeholder='Ваше имя').input.last-question__input
+                        input(type='email' placeholder='E-mail').input.last-question__input
+                        button.btn.btn--primary.last-question__btn Получить
+                        .last-question__decorate
+                            img(src='img/iphone.png' alt='' aria-hidden='true')
+

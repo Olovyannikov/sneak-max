@@ -7,10 +7,13 @@ import products from "./modules/products";
 import 'simplebar/dist/simplebar';
 import cart from "./components/cart.component";
 
-rangeslider();
-quiz();
-accordion('faq-accordion');
-instagram();
-map();
-products();
-cart();
+window.addEventListener('DOMContentLoaded', () => {
+    rangeslider();
+    quiz();
+    accordion('faq-accordion');
+    instagram();
+    map();
+    products();
+    cart();
+});
+

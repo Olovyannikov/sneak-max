@@ -6,7 +6,7 @@ const cart = () => {
         miniCart.classList.add('mini-cart--visible');
 
         let div = document.createElement('div');
-        div.style.position = 'absolute';
+        div.style.position = 'fixed';
         div.style.left = '0';
         div.style.right = '0';
         div.style.top = '0';

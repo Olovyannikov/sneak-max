@@ -51,8 +51,13 @@
 
   }
 
+  &__list {
+    display: none;
+  }
+
   &__quantity {
     margin-bottom: var(--second-offset);
+
     span {
       margin-left: var(--small-offset);
       font-weight: 700;
@@ -62,6 +67,7 @@
 
   &__sum {
     margin-bottom: var(--second-offset);
+
     span {
       margin-left: var(--small-offset);
       font-weight: 700;
@@ -69,7 +75,7 @@
     }
   }
 
-  &__item {
+  .mini-cart__item {
     &:not(:last-child) {
       margin-bottom: 14px;
     }
@@ -87,55 +93,75 @@
       height: 7px;
       fill: currentColor;
       object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &--active {
+      svg {
+        transform: rotate(180deg);
+      }
     }
   }
 }
 
-.cart-modal-product {
-  display: flex;
-  align-items: center;
-
-  &__image {
-    flex-shrink: 0;
-    margin-right: var(--small-offset);
-    width: 80px;
-    height: 45px;
-
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  &__content {
+.cart-modal {
+  .mini-product {
+    position: relative;
     display: flex;
-    flex-grow: 1;
     align-items: center;
-  }
+    padding: 0;
 
-  &__text {
-    margin-right: auto;
-    max-width: 290px;
-  }
+    &__image {
+      flex-shrink: 0;
+      margin-right: var(--small-offset);
+      width: 80px;
+      height: 45px;
 
-  &__title {
-    margin: 0 0 var(--small-offset);
-    font: var(--small-book);
-    line-height: 20px;
-    color: var(--color-main);
-  }
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
 
-  &__price {
-    font: var(--prehigh-regular);
-    font-weight: 700;
-    color: #4d4d4d;
-  }
+    &__content {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+    }
 
-  &__delete {
-    font: var(--small-book);
-    line-height: 14px;
-    color: var(--color-gray);
+    &__text {
+      margin-right: auto;
+      max-width: 290px;
+    }
+
+    &__title {
+      margin: 0 0 var(--small-offset);
+      font: var(--small-book);
+      line-height: 20px;
+      color: var(--color-main);
+    }
+
+    &__price {
+      font: var(--prehigh-regular);
+      font-weight: 700;
+      color: #4d4d4d;
+    }
+
+    &__delete {
+      width: auto;
+      height: auto;
+      font: var(--small-book);
+      line-height: 14px;
+      color: var(--color-gray);
+
+      svg {
+        display: none;
+      }
+
+    }
   }
 }
+
+

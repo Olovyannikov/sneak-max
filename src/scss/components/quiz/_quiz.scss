@@ -54,6 +54,17 @@
     font: var(--middle-book);
     color: var(--color-jumbo);
   }
+
+  &__message {
+    border: none;
+    border-radius: 4px;
+    padding: var(--second-offset);
+    width: 465px;
+    height: 246px;
+    color: var(--color-cameo);
+    resize: none;
+    background: var(--color-white);
+  }
 }
 
 .quiz-bottom {
@@ -63,4 +74,53 @@
   border-top: 1px solid currentColor;
   padding-top: var(--second-offset);
   color: var(--color-jumbo);
+}
+
+.last-question {
+  display: none;
+  padding-top: calc(var(--second-offset) + 4px);
+
+  &__form {
+    position: relative;
+    border-radius: 4px;
+    padding: var(--main-offset);
+    max-width: 655px;
+    background-color: var(--color-cameo);
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 140%;
+    color: var(--color-white);
+  }
+
+  &__descr {
+    margin: 0 0 var(--small-offset);
+    margin-bottom: var(--second-offset);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+    color: var(--color-white);
+  }
+
+  &__input {
+    margin-bottom: var(--small-offset);
+    max-width: 500px;
+
+    &:last-of-type {
+      margin-bottom: var(--second-offset);
+    }
+  }
+
+  &__btn {
+    min-width: 220px;
+  }
+
+  &__decorate {
+    position: absolute;
+    top: -15px;
+    right: -185px;
+  }
 }

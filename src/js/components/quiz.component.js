@@ -147,12 +147,14 @@ export const quiz = () => {
                     if ((this.counter + 1 == this.dataLength)) {
                         //this.$el.querySelector('.quiz-bottom').insertAdjacentHTML('beforeend', `<button type="button" data-send>${this.options.sendBtnText}</button>`)
                         //this.$el.querySelector('[data-next-btn]').remove();
-
+                        document.querySelector('.quiz-question__answers').style.display = 'block';
                     }
                 } else {
                     console.log('А все! конец!');
                     document.querySelector('.quiz-questions').style.display = 'none';
-                    document.querySelector('.asd').style.display = 'block';
+                    document.querySelector('.last-question').style.display = 'block';
+                    document.querySelector('.quiz__title').textContent = 'Ваша подборка готова!';
+                    document.querySelector('.quiz__descr').textContent = 'Оставьте свои контактные даные, чтобы мы могли отправить подготовленный для вас католог';
 
                 }
             } else {

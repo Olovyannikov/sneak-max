@@ -2,35 +2,35 @@ let project_folder = "build";
 let source_folder = "src";
 
 let path = {
-  build: {
-    html: project_folder + "/",
-    css: project_folder + "/css/",
-    js: project_folder + "/js/",
-    img: project_folder + "/img/",
-    fonts: project_folder + "/fonts/"
-  },
-  src: {
-    html: [
-      source_folder + "/html/*.html",
-      "!" + source_folder + "/**/_*.html",
-    ],
-    pug: [
-      source_folder + "/pug/pages/*.pug",
-      "!" + source_folder + "/**/_*.pug",
-    ],
-    css: source_folder + "/scss/style.scss",
-    js: source_folder + "/js/script.js",
-    img: source_folder + "/img/**/*.{png,jpeg,jpg,gif,ico,webp,svg}",
-    fonts: source_folder + "/fonts/*.{woff,woff2,ttf,svg}",
-  },
-  watch: {
-    html: source_folder + "/**/*.html",
-    pug: source_folder + "/**/*.pug",
-    css: source_folder + "/scss/**/*.scss",
-    js: source_folder + "/js/**/*.js",
-    img: source_folder + "/img/**/*.{png,jpeg,jpg,svg,gif,ico,webp}",
-  },
-  clean: "./" + project_folder + "/",
+    build: {
+        html: project_folder + "/",
+        css: project_folder + "/css/",
+        js: project_folder + "/js/",
+        img: project_folder + "/img/",
+        fonts: project_folder + "/fonts/"
+    },
+    src: {
+        html: [
+            source_folder + "/html/*.html",
+            "!" + source_folder + "/**/_*.html",
+        ],
+        pug: [
+            source_folder + "/pug/pages/*.pug",
+            "!" + source_folder + "/**/_*.pug",
+        ],
+        css: source_folder + "/scss/style.scss",
+        js: source_folder + "/js/script.js",
+        img: source_folder + "/img/**/*.{png,jpeg,jpg,gif,ico,webp,svg}",
+        fonts: source_folder + "/fonts/*.{woff,woff2,ttf,svg}",
+    },
+    watch: {
+        html: source_folder + "/**/*.html",
+        pug: source_folder + "/**/*.pug",
+        css: source_folder + "/scss/**/*.scss",
+        js: source_folder + "/js/**/*.js",
+        img: source_folder + "/img/**/*.{png,jpeg,jpg,svg,gif,ico,webp}",
+    },
+    clean: "./" + project_folder + "/",
 };
 
 const {src, dest, series, watch} = require('gulp');
@@ -64,190 +64,187 @@ let isProd = false; // dev by default
 let isGrid = false; // smartgrid or not
 
 const clean = () => {
-  return del(path.clean)
+    return del(path.clean)
 }
 
 //svg sprite
 const svgSprites = () => {
-  return src([source_folder + "/img/svg/**.svg"])
-    .pipe(svgSprite({
-      mode: {
-        stack: {
-          sprite: "../sprite.svg" //sprite file name
-        }
-      },
-    }))
-    .pipe(dest(path.build.img));
+    return src([source_folder + "/img/svg/**.svg"])
+        .pipe(svgSprite({
+            mode: {
+                stack: {
+                    sprite: "../sprite.svg" //sprite file name
+                }
+            },
+        }))
+        .pipe(dest(path.build.img));
 }
 
 const styles = () => {
-  return src(path.src.css)
-    .pipe(gulpif(!isProd, sourcemaps.init()))
-    .pipe(sass().on("error", notify.onError()))
-    .pipe(autoprefixer({
-      cascade: false,
-    }))
-    .pipe(
-      rename({
-        extname: ".min.css",
-      })
-    )
-    .pipe(gulpif(isProd, cleanCSS({level: 2})))
-    .pipe(gulpif(!isProd, sourcemaps.write('.')))
+    return src(path.src.css)
+        .pipe(gulpif(!isProd, sourcemaps.init()))
+        .pipe(sass().on("error", notify.onError()))
+        .pipe(autoprefixer({
+            cascade: false,
+        }))
+        .pipe(
+            rename({
+                extname: ".min.css",
+            })
+        )
+        .pipe(gulpif(isProd, cleanCSS({level: 2})))
+        .pipe(gulpif(!isProd, sourcemaps.write('.')))
 
-    .pipe(dest(path.build.css))
-    .pipe(browserSync.stream());
+        .pipe(dest(path.build.css))
+        .pipe(browserSync.stream());
 };
 
 const stylesBackend = () => {
-  return src(path.src.css)
-    .pipe(sass().on("error", notify.onError()))
-    .pipe(autoprefixer({
-      cascade: false,
-    }))
-    .pipe(dest(path.build.css))
+    return src(path.src.css)
+        .pipe(sass().on("error", notify.onError()))
+        .pipe(autoprefixer({
+            cascade: false,
+        }))
+        .pipe(dest(path.build.css))
 };
 
 const scripts = () => {
-  return src(path.src.js)
-    .pipe(
-      webpackStream({
-        mode: "production",
-        output: {
-          filename: "script.js",
-        },
-        module: {
-          rules: [
-            {
-              test: /\.m?js$/,
-              exclude: /(node_modules|bower_components)/,
-              use: {
-                loader: "babel-loader",
-                options: {
-                  presets: ["@babel/preset-env"],
-                },
-              },
+    return src(path.src.js)
+        .pipe(webpackStream({
+            mode: 'development',
+            output: {
+                filename: 'script.js'
             },
-          ],
-        },
-        plugins: [
-          new webpack.ContextReplacementPlugin(
-            /moment[/\\]locale$/,
-            /ru/
-          ),
-        ],
-      })
-    )
-    .pipe(dest(path.build.js))
-    .pipe(uglify())
-    .pipe(
-      rename({
-        extname: ".min.js",
-      })
-    )
-    .pipe(dest(path.build.js))
-    .pipe(browserSync.stream());
+            watch: false,
+            devtool: "source-map",
+            module: {
+                rules: [
+                    {
+                        test: /\.m?js$/,
+                        exclude: /(node_modules|bower_components)/,
+                        use: {
+                            loader: 'babel-loader',
+                            options: {
+                                presets: [['@babel/preset-env', {
+                                    debug: true,
+                                    corejs: 3,
+                                    useBuiltIns: "usage"
+                                }]]
+                            }
+                        }
+                    }
+                ]
+            }
+        }))
+        .pipe(dest(path.build.js))
+        .pipe(
+            rename({
+                extname: ".min.js",
+            })
+        )
+        .pipe(dest(path.build.js))
+        .on("end", browserSync.reload)
 }
 
 const resources = () => {
-  return src(source_folder + '/assets/**')
-    .pipe(dest(project_folder + '/assets'))
+    return src(source_folder + '/assets/**')
+        .pipe(dest(project_folder + '/assets'))
 }
 
 const fonts = () => {
-  return src(source_folder + '/fonts/**')
-    .pipe(dest(path.build.fonts))
+    return src(source_folder + '/fonts/**')
+        .pipe(dest(path.build.fonts))
 }
 
 const images = () => {
-  return src(path.src.img)
-    .pipe(gulpif(isProd, image()))
-    .pipe(dest(path.build.img))
+    return src(path.src.img)
+        .pipe(gulpif(isProd, image()))
+        .pipe(dest(path.build.img))
 };
 
 const pug2html = () => {
-  return src(path.src.pug)
-    .pipe(
-      plumber({
-        errorHandler: notify.onError(function (err) {
-          return {
-            title: "Pug",
-            sound: false,
-            message: err.message,
-          };
-        }),
-      })
-    )
-    .pipe(
-      pug({
-        pretty: true,
-      })
-    )
-    .pipe(dest(path.build.html))
-    .pipe(browserSync.stream());
+    return src(path.src.pug)
+        .pipe(
+            plumber({
+                errorHandler: notify.onError(function (err) {
+                    return {
+                        title: "Pug",
+                        sound: false,
+                        message: err.message,
+                    };
+                }),
+            })
+        )
+        .pipe(
+            pug({
+                pretty: true,
+            })
+        )
+        .pipe(dest(path.build.html))
+        .pipe(browserSync.stream());
 }
 
 const watchFiles = () => {
-  browserSync.init({
-    server: {
-      baseDir: "./" + project_folder + "/",
-    },
-  });
+    browserSync.init({
+        server: {
+            baseDir: "./" + project_folder + "/",
+        },
+    });
 
-  watch(path.watch.css, styles);
-  watch(path.watch.js, scripts);
-  //watch('./src/partials/*.html', htmlInclude);
-  watch(path.watch.pug, pug2html);
-  watch(source_folder + '/assets', resources);
-  watch(path.watch.img, images);
-  //watch('./src/img/**/*.{jpg,jpeg,png}', images);
-  watch(source_folder + '/img/svg/**.svg', svgSprites);
+    watch(path.watch.css, styles);
+    watch(path.watch.js, scripts);
+    //watch('./src/partials/*.html', htmlInclude);
+    watch(path.watch.pug, pug2html);
+    watch(source_folder + '/assets', resources);
+    watch(path.watch.img, images);
+    //watch('./src/img/**/*.{jpg,jpeg,png}', images);
+    watch(source_folder + '/img/svg/**.svg', svgSprites);
 }
 
 const cache = () => {
-  return src('build/**/*.{css,js,svg,png,jpg,jpeg,woff2}', {
-    base: 'build'
-  })
-    .pipe(rev())
-    .pipe(revDel())
-    .pipe(dest('build'))
-    .pipe(rev.manifest('rev.json'))
-    .pipe(dest('build'));
+    return src('build/**/*.{css,js,svg,png,jpg,jpeg,woff2}', {
+        base: 'build'
+    })
+        .pipe(rev())
+        .pipe(revDel())
+        .pipe(dest('build'))
+        .pipe(rev.manifest('rev.json'))
+        .pipe(dest('build'));
 };
 
 const rewrite = () => {
-  const manifest = readFileSync('build/rev.json');
-  src('build/css/*.css')
-    .pipe(revRewrite({
-      manifest
-    }))
-    .pipe(dest('build/css'));
-  return src('build/**/*.html')
-    .pipe(revRewrite({
-      manifest
-    }))
-    .pipe(dest('build'));
+    const manifest = readFileSync('build/rev.json');
+    src('build/css/*.css')
+        .pipe(revRewrite({
+            manifest
+        }))
+        .pipe(dest('build/css'));
+    return src('build/**/*.html')
+        .pipe(revRewrite({
+            manifest
+        }))
+        .pipe(dest('build'));
 }
 
 const htmlMinify = () => {
-  return src('app/**/*.html')
-    .pipe(htmlmin({
-      collapseWhitespace: true
-    }))
-    .pipe(dest('app'));
+    return src('app/**/*.html')
+        .pipe(htmlmin({
+            collapseWhitespace: true
+        }))
+        .pipe(dest('app'));
 }
 
 const toProd = (done) => {
-  isProd = true;
-  done();
+    isProd = true;
+    done();
 };
 
 const grid = (callback) => {
-  isGrid = true;
-  delete require.cache[require.resolve('./smartgrid.js')];
-  let settings = require('./smartgrid.js');
-  smartGrid(source_folder + '/scss/vendor', settings);
-  callback();
+    isGrid = true;
+    delete require.cache[require.resolve('./smartgrid.js')];
+    let settings = require('./smartgrid.js');
+    smartGrid(source_folder + '/scss/vendor', settings);
+    callback();
 }
 
 exports.default = series(clean, pug2html, scripts, styles, resources, fonts, images, svgSprites, watchFiles);
