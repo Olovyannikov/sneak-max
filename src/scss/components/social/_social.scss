@@ -9,11 +9,13 @@
 
   &__link {
     display: block;
+    outline: none;
     width: 44px;
     height: 44px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    transition: opacity 0.3s ease-in-out;
 
     &--vk {
       background-image: url('../img/sprite.svg#vk');
@@ -21,6 +23,13 @@
 
     &--insta {
       background-image: url('../img/sprite.svg#insta');
+    }
+
+    @include desktop {
+      &:hover,
+      &:focus {
+        opacity: 0.7;
+      }
     }
   }
 }

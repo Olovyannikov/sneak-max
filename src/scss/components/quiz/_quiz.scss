@@ -5,6 +5,10 @@
     border-radius: 4px;
     padding: var(--main-offset) 100px;
     background-color: var(--color-bg);
+
+    @include small-tablet {
+      padding: var(--main-offset);
+    }
   }
 
   &__title {
@@ -48,6 +52,10 @@
     grid-template-columns: repeat(3, 1fr);
     padding-bottom: var(--main-offset);
     gap: var(--second-offset) 70px;
+
+    @include small-tablet {
+      gap: var(--second-offset);
+    }
   }
 
   &__count {
@@ -94,6 +102,11 @@
     font-size: 36px;
     line-height: 140%;
     color: var(--color-white);
+
+    @include mobile {
+      font-size: rem-calc(24);
+      line-height: rem-calc(30);
+    }
   }
 
   &__descr {
@@ -116,11 +129,20 @@
 
   &__btn {
     min-width: 220px;
+
+    @include mobile {
+      min-width: auto;
+      width: 100%;
+    }
   }
 
   &__decorate {
     position: absolute;
-    top: -15px;
     right: -185px;
+    top: -15px;
+
+    @include small-tablet {
+      display: none;
+    }
   }
 }

@@ -28,6 +28,10 @@
     line-height: rem-calc(200);
     color: rgba(255, 255, 255, 0.12);
     transform: translate(-50%, -50%);
+
+    @include tablet {
+      display: none;
+    }
   }
 
   &__title {
@@ -36,6 +40,10 @@
     max-width: 50%;
     font: 700 36px / 140% var(--font-family);
     color: #fff;
+
+    @include small-tablet {
+      max-width: 100%;
+    }
   }
 
   &__descr {
@@ -43,5 +51,14 @@
     max-width: calc(50% - 100px);
     font: var(--middle-book);
     color: var(--color-white);
+
+    @include small-tablet {
+      max-width: 100%;
+    }
+  }
+
+  @include small-tablet {
+    padding: 30px 0;
+    height: auto;
   }
 }

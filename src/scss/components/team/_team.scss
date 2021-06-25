@@ -7,6 +7,10 @@
     position: absolute;
     right: 0;
     top: 0;
+
+    @include small-tablet {
+      display: none;
+    }
   }
 
   &__title {

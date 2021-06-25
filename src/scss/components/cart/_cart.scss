@@ -11,8 +11,24 @@
       display: block;
       width: 100%;
       height: 100%;
+      fill: var(--color-white);
       object-fit: cover;
+      transition: fill 0.3s ease-in-out;
       pointer-events: none;
+
+      @include desktop {
+        &:focus {
+          fill: var(--color-accent);
+        }
+      }
+
+      @include desktop {
+        &:active {
+          svg {
+            fill: var(--color-accent-hover);
+          }
+        }
+      }
     }
   }
 
@@ -84,6 +100,10 @@
     padding: var(--second-offset);
     box-shadow: 0 -4px 10px rgba(0, 13, 84, 0.1);
     background-color: var(--color-white);
+
+    @include mobile {
+      flex-wrap: wrap;
+    }
   }
 
   &__txt {
@@ -100,11 +120,25 @@
   &__btn {
     padding-top: 14px;
     padding-bottom: 14px;
+
+    @include mobile {
+      width: 100%;
+    }
   }
 
   &--visible {
     opacity: 1;
     visibility: visible;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+
+  &__total {
+    @include mobile {
+      margin-bottom: 20px;
+    }
+  }
+
+  @include mobile {
+    width: 290px;
   }
 }

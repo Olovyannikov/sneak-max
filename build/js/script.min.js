@@ -22972,6 +22972,7 @@ var cart = function cart() {
   var miniCart = document.querySelector('.mini-cart');
   cartBtn.addEventListener('click', function () {
     miniCart.classList.add('mini-cart--visible');
+    cartBtn.style.pointerEvents = 'none';
     var div = document.createElement('div');
     div.style.position = 'fixed';
     div.style.left = '0';
@@ -22985,6 +22986,7 @@ var cart = function cart() {
     if (e.target.classList.contains('overlay') || e.target.classList.contains('mini-cart__btn')) {
       miniCart.classList.remove('mini-cart--visible');
       document.querySelector('.overlay').remove();
+      cartBtn.style.pointerEvents = 'all';
     }
   });
 };
@@ -23924,8 +23926,8 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', function () {
   Object(_components_rangeslider_component__WEBPACK_IMPORTED_MODULE_0__["rangeslider"])();
   Object(_components_quiz_component__WEBPACK_IMPORTED_MODULE_1__["quiz"])();
-  Object(_components_accordion_component__WEBPACK_IMPORTED_MODULE_2__["default"])('faq-accordion');
-  Object(_components_insta_component__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_components_accordion_component__WEBPACK_IMPORTED_MODULE_2__["default"])('faq-accordion'); //instagram();
+
   Object(_components_map_component__WEBPACK_IMPORTED_MODULE_4__["default"])();
   Object(_modules_products__WEBPACK_IMPORTED_MODULE_5__["default"])();
   Object(_components_cart_component__WEBPACK_IMPORTED_MODULE_7__["default"])();

@@ -30,11 +30,8 @@
     svg {
       width: 30px;
       height: 30px;
+      fill: var(--color-white);
       object-fit: cover;
-    }
-
-    &:hover {
-      background-color: var(--color-main-hover);
     }
 
     &:first-child {
@@ -44,6 +41,13 @@
     &--disabled {
       opacity: 0.4;
       pointer-events: none;
+    }
+
+    @include desktop {
+      &:hover,
+      &:focus {
+        background-color: var(--color-main-hover);
+      }
     }
   }
 
@@ -62,14 +66,13 @@
   }
 
   &__title {
+    display: flex;
     display: box;
-    display: -webkit-box;
     overflow: hidden;
     margin: 0 0 var(--small-offset);
     font: var(--middle-book);
     color: var(--color-main);
     box-orient: vertical;
-    -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
   }
 
@@ -78,10 +81,13 @@
     color: var(--color-main);
   }
 
-  &:hover {
-    .product__buttons {
-      opacity: 1;
-      visibility: visible;
+  @include desktop {
+    &:hover,
+    &:focus {
+      .product__buttons {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 }
@@ -140,6 +146,10 @@
       height: 100%;
       object-fit: cover;
       pointer-events: none;
+    }
+
+    @include mobile {
+      flex-shrink: 0;
     }
   }
 }

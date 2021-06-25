@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
     rangeslider();
     quiz();
     accordion('faq-accordion');
-    instagram();
+    //instagram();
     map();
     products();
     cart();

@@ -5,6 +5,10 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+
+    @include small-tablet {
+      justify-content: center;
+    }
   }
 
   &__left {
@@ -13,6 +17,10 @@
     border-radius: 4px;
     width: 380px;
     background-color: var(--color-eastbay);
+
+    @include mobile {
+      width: 100%;
+    }
   }
 
   &__title {
@@ -42,6 +50,10 @@
     align-items: center;
     width: calc(100% - (380px + var(--small-offset)));
     height: 100%;
+
+    @include small-tablet {
+      display: none;
+    }
   }
 
   &__content {
@@ -81,6 +93,10 @@
   &__link {
     display: inline-block;
     margin-bottom: var(--second-offset);
+  }
+
+  @include mobile {
+    padding: 40px 0;
   }
 }
 

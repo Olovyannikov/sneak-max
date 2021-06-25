@@ -4,5 +4,9 @@
   &__list {
     max-width: 880px;
     margin: 0 auto;
+
+    @include mobile {
+      padding: 40px 0;
+    }
   }
 }
