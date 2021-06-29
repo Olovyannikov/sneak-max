@@ -2,6 +2,11 @@
   &__list {
     display: flex;
     align-items: center;
+
+    @include tablet {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   &__item {
@@ -30,17 +35,29 @@
       transition: transform 0.3s ease-in-out;
     }
 
+    &:active {
+      opacity: 0.8;
+      transition: opacity 0.3s ease-in-out;
+    }
+
     @include desktop {
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         &::before {
           transform: scaleX(1);
         }
       }
     }
 
-    &:active {
-      transition: opacity 0.3s ease-in-out;
-      opacity: 0.8;
+    @include tablet {
+      font-size: 24px;
+      padding-left: 15px;
+    }
+  }
+
+  @include tablet {
+    &--active {
+      display: block;
     }
   }
 }

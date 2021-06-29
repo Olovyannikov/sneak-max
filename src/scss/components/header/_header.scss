@@ -35,13 +35,40 @@
     grid-column: 10 span;
 
     @include mobile {
-     grid-column: 2 span;
+      align-items: center;
+      grid-column: 2 span;
     }
   }
 
   &__nav {
     @include tablet {
+      position: fixed;
+      left: 0;
+      top: 13.5%;
+      z-index: 1000;
       display: none;
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-eastbay);
     }
+
+    @include mobile {
+      top: 11%;
+    }
+  }
+}
+
+.burger {
+  --burger-width: 24px;
+  --burger-height: 18px;
+  --burger-line-height: 2px;
+
+  @include burger;
+  display: none;
+
+  color: var(--color-white);
+
+  @include tablet {
+    display: block;
   }
 }

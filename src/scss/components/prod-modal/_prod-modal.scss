@@ -1,3 +1,11 @@
+.modal {
+  @include tablet {
+    &::before {
+      display: none;
+    }
+  }
+}
+
 .prod-modal {
   border-radius: 4px;
   padding: var(--main-offset);
@@ -5,12 +13,21 @@
 
   .modal__close {
     display: none;
+
+    @include small-tablet {
+      z-index: 100;
+      display: block;
+    }
   }
 
   &__top {
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--main-offset);
+
+    @include small-tablet {
+      flex-direction: column;
+    }
   }
 
   &__bottom {
@@ -29,6 +46,11 @@
       object-fit: cover;
     }
   }
+
+  @include tablet {
+    margin: 0;
+    width: 100%;
+  }
 }
 
 .modal-slider {
@@ -46,6 +68,12 @@
       object-fit: cover;
     }
   }
+
+  @include small-tablet {
+    margin-right: 0;
+    margin-bottom: 30px;
+    width: 100%;
+  }
 }
 
 .modal-info {
@@ -62,10 +90,23 @@
     font: var(--middle-book);
     line-height: 16px;
     color: var(--color-gray);
+
+    @include mobile {
+      flex-direction: column;
+    }
   }
 
   &__vendor {
     margin-right: var(--main-offset);
+
+    @include tablet {
+      margin-right: 10px;
+    }
+
+    @include mobile {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
   }
 
   &__quantity {
@@ -95,7 +136,6 @@
     color: var(--main-offset);
   }
 
-
   &__price {
     display: flex;
     align-items: center;
@@ -117,6 +157,15 @@
   &__order {
     margin-top: auto;
     width: 100%;
+
+    @include small-tablet {
+      margin-top: 30px;
+    }
+  }
+
+  @include small-tablet {
+    margin: 0;
+    width: 100%;
   }
 }
 
@@ -135,8 +184,8 @@
 
   &__btn {
     display: inline-flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     border: 1px solid var(--color-gray);
     border-radius: 4px;
     padding: 6px 0;
@@ -163,15 +212,15 @@
       object-fit: cover;
     }
 
+    &--active {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
     @include desktop {
       &:hover {
         opacity: 0.7;
       }
-    }
-
-    &--active {
-      pointer-events: none;
-      opacity: 0.7;
     }
   }
 }
@@ -199,8 +248,18 @@
 
   &__column {
     width: calc(50% - (var(--second-offset) / 2));
+
     &:first-child {
       margin-right: var(--second-offset);
+    }
+
+    @include small-tablet {
+      width: 100%;
+
+      &:first-child {
+        margin-right: 0;
+        margin-bottom: 30px;
+      }
     }
   }
 
@@ -212,8 +271,12 @@
 
   &__descr {
     margin: 0;
-    width: 450px;
+    max-width: 450px;
     font: var(--middle-book);
     color: var(--color-main);
+  }
+
+  @include small-tablet {
+    display: block;
   }
 }

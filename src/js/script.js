@@ -6,6 +6,7 @@ import map from "./components/map.component";
 import products from "./modules/products";
 import 'simplebar/dist/simplebar';
 import cart from "./components/cart.component";
+import {burger} from "./modules/burger";
 
 window.addEventListener('DOMContentLoaded', () => {
     rangeslider();
@@ -15,5 +16,6 @@ window.addEventListener('DOMContentLoaded', () => {
     map();
     products();
     cart();
+    burger();
 });
 

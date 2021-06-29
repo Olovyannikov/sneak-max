@@ -4,7 +4,7 @@ const cart = () => {
 
     cartBtn.addEventListener('click', () => {
         miniCart.classList.add('mini-cart--visible');
-        cartBtn.style.pointerEvents = 'none';
+        cartBtn.style.disabled = true;
 
         let div = document.createElement('div');
         div.style.position = 'fixed';
@@ -20,8 +20,11 @@ const cart = () => {
         if (e.target.classList.contains('overlay') || e.target.classList.contains('mini-cart__btn')) {
             miniCart.classList.remove('mini-cart--visible');
             document.querySelector('.overlay').remove();
-            cartBtn.style.pointerEvents = 'all';
+            cartBtn.disabled = true;
+        }
 
+        if (document.querySelector('.cart__count').innerHTML !== '0') {
+            cartBtn.disabled = false;
         }
     });
 

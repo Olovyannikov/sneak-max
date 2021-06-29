@@ -38,6 +38,12 @@
     img {
       margin-bottom: var(--small-offset);
     }
+
+    &:not(:last-child) {
+      @include mobile {
+        margin-bottom: 30px;
+      }
+    }
   }
 
   &__title {
@@ -56,6 +62,10 @@
     @include small-tablet {
       gap: var(--second-offset);
     }
+
+    @include mobile {
+      display: block;
+    }
   }
 
   &__count {
@@ -72,6 +82,10 @@
     color: var(--color-cameo);
     resize: none;
     background: var(--color-white);
+
+    @include mobile {
+      width: 100%;
+    }
   }
 }
 

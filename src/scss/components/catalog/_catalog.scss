@@ -71,18 +71,23 @@
   &__item {
     grid-column: 3 span;
 
-    &:focus-within {
+    &:focus {
       .product__buttons {
-        visibility: visible;
         opacity: 1;
+        visibility: visible;
       }
     }
 
     @include mobile {
       grid-column: 4 span;
     }
+  }
 
-
+  &:focus {
+    .product__buttons {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 
   @include mobile {
