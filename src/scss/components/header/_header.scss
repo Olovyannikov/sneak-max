@@ -64,8 +64,8 @@
   --burger-line-height: 2px;
 
   @include burger;
-  display: none;
 
+  display: none;
   color: var(--color-white);
 
   @include tablet {

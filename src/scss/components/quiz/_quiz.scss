@@ -96,6 +96,10 @@
   border-top: 1px solid currentColor;
   padding-top: var(--second-offset);
   color: var(--color-jumbo);
+
+  @include mobile {
+    display: block;
+  }
 }
 
 .last-question {

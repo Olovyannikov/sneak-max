@@ -1,5 +1,8 @@
 export const quiz = () => {
 
+    let quizFormData = null;
+    let textareaText = null;
+
     const quizData = [
         {
             number: 1,
@@ -132,19 +135,17 @@ export const quiz = () => {
         }
 
         init() {
-            console.log('init!');
             this.$el.innerHTML = quizTemplate(this.data[this.counter], this.dataLength, this.options);
         }
 
         nextQuestion() {
-            console.log('next question!');
 
             if (this.valid()) {
                 if (this.counter + 1 < this.dataLength) {
                     this.counter++;
                     this.$el.innerHTML = quizTemplate(this.data[this.counter], this.dataLength, this.options);
 
-                    if ((this.counter + 1 == this.dataLength)) {
+                    if ((this.counter + 1 === this.dataLength)) {
                         //this.$el.querySelector('.quiz-bottom').insertAdjacentHTML('beforeend', `<button type="button" data-send>${this.options.sendBtnText}</button>`)
                         //this.$el.querySelector('[data-next-btn]').remove();
                         document.querySelector('.quiz-question__answers').style.display = 'block';
@@ -156,6 +157,39 @@ export const quiz = () => {
                     document.querySelector('.quiz__title').textContent = 'Ваша подборка готова!';
                     document.querySelector('.quiz__descr').textContent = 'Оставьте свои контактные даные, чтобы мы могли отправить подготовленный для вас католог';
 
+                    document.querySelector('.quiz-form').addEventListener('submit', (e) => {
+                        e.preventDefault();
+
+                        const quizFormData = new FormData();
+
+                        for (let item of this.resultArray) {
+                            for (let obj in item) {
+                                quizFormData.append(obj, item[obj].substring(0, item[obj].length - 1));
+                            }
+                        }
+
+                        quizFormData.append('textarea', textareaText);
+
+                        let xhr = new XMLHttpRequest();
+
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState === 4) {
+                                if (xhr.status === 200) {
+                                    console.log('SENDING');
+                                }
+                            }
+
+                            document.querySelector('.quiz-form').querySelectorAll('input')
+                                .forEach(el => {
+                                    if (el.value) {
+                                        xhr.open('POST', 'mail.php', true);
+                                        xhr.send(quizFormData);
+
+                                        document.querySelector('.quiz-form').reset();
+                                    }
+                                })
+                        }
+                    });
                 }
             } else {
                 console.log('Не валидно!')
@@ -165,18 +199,18 @@ export const quiz = () => {
         events() {
             console.log('events!')
             this.$el.addEventListener('click', (e) => {
-                if (e.target == document.querySelector('[data-next-btn]')) {
+                if (e.target === document.querySelector('[data-next-btn]')) {
                     this.addToSend();
                     this.nextQuestion();
                 }
 
-                if (e.target == document.querySelector('[data-send]')) {
+                if (e.target === document.querySelector('[data-send]')) {
                     this.send();
                 }
             });
 
             this.$el.addEventListener('change', (e) => {
-                if (e.target.tagName == 'INPUT') {
+                if (e.target.tagName === 'INPUT') {
                     if (e.target.type !== 'checkbox' && e.target.type !== 'radio') {
                         let elements = this.$el.querySelectorAll('input')
 
@@ -184,7 +218,10 @@ export const quiz = () => {
                             el.checked = false;
                         });
                     }
-                    this.tmp = this.serialize(this.$el);
+                    this.tmp = this.serialize(document.querySelector('.quiz-form'));
+                } else {
+                    let textArea = this.$el.querySelector('textarea');
+                    textareaText = textArea.value;
                 }
             });
         }
@@ -213,12 +250,14 @@ export const quiz = () => {
                                 } else {
                                     el.classList.add('error')
                                 }
+                                break
                             case 'checkbox':
                                 if (el.checked) {
                                     isValid = true;
                                 } else {
                                     el.classList.add('error')
                                 }
+                                break
                             case 'radio':
                                 if (el.checked) {
                                     isValid = true;
@@ -236,42 +275,24 @@ export const quiz = () => {
             this.resultArray.push(this.tmp)
         }
 
-        send() {
-            if (this.valid()) {
-                const formData = new FormData();
-
-                for (let item of this.resultArray) {
-                    for (let obj in item) {
-                        formData.append(obj, item[obj].substring(0, item[obj].length - 1));
-                    }
-                }
-
-                const response = fetch("mail.php", {
-                    method: 'POST',
-                    body: formData
-                });
-            }
-        }
-
         serialize(form) {
             let field, s = {};
             let valueString = '';
-            if (typeof form == 'object' && form.nodeName == "FORM") {
+            if (typeof form == 'object' && form.nodeName === "FORM") {
                 let len = form.elements.length;
                 for (let i = 0; i < len; i++) {
                     field = form.elements[i];
 
-                    if (field.name && !field.disabled && field.type != 'file' && field.type != 'reset' && field.type != 'submit' && field.type != 'button') {
-                        if (field.type == 'select-multiple') {
-                            for (j = form.elements[i].options.length - 1; j >= 0; j--) {
+                    if (field.name && !field.disabled && field.type !== 'file' && field.type !== 'reset' && field.type !== 'submit' && field.type !== 'button') {
+                        if (field.type === 'select-multiple') {
+                            for (let j = form.elements[i].options.length - 1; j >= 0; j--) {
                                 if (field.options[j].selected)
                                     s[s.length] = encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[j].value);
                             }
-                        } else if ((field.type != 'checkbox' && field.type != 'radio' && field.value) || field.checked) {
+                        } else if ((field.type !== 'checkbox' && field.type !== 'radio' && field.value) || field.checked) {
                             valueString += field.value + ',';
 
                             s[field.name] = valueString;
-
                         }
                     }
                 }

@@ -208,16 +208,31 @@
         <h2 class="visually-hidden">Форма и инстаграм-лента</h2>
         <div class="container instagram__container">
           <div class="instagram__left">
-            <form class="callback-form">
+            <form class="callback-form" action="#">
               <h3 class="title instagram__title">Есть вопросы?</h3>
               <p class="instagram__descr">Заполните форму и наш менеджер свяжется с вами</p>
-              <input class="input instagram__input" type="text" placeholder="Ваше имя"/>
-              <input class="input instagram__input" type="tel" placeholder="Номер телефона"/>
+              <label class="form-label">
+                <input class="input instagram__input" type="text" placeholder="Ваше имя" data-validate-field="name" name="name"/>
+              </label>
+              <label class="form-label">
+                <input class="input instagram__input" type="tel" placeholder="Номер телефона" data-validate-field="phone" name="phone"/>
+              </label>
               <button class="btn btn--primary instagram__btn" type="submit">Отправить</button>
             </form>
           </div>
           <div class="instagram__right"><a class="instagram__link" href="#"><img src="img/instagram.png" alt="Лого инстаграма"/></a>
-            <div class="instagram__content"></div>
+            <div class="instagram__content">
+              <article class="instagram__item"><a class="instagram__link" href="#">
+                  <h3 class="instagram__subtitle visually-hidden">Photo of everything</h3><img src="img/insta-1.jpg" alt=""/></a></article>
+              <article class="instagram__item"><a class="instagram__link" href="#">
+                  <h3 class="instagram__subtitle visually-hidden">Photo of everything</h3><img src="img/insta-2.jpg" alt=""/></a></article>
+              <article class="instagram__item"><a class="instagram__link" href="#">
+                  <h3 class="instagram__subtitle visually-hidden">Photo of everything</h3><img src="img/insta-3.jpg" alt=""/></a></article>
+              <article class="instagram__item"><a class="instagram__link" href="#">
+                  <h3 class="instagram__subtitle visually-hidden">Photo of everything</h3><img src="img/insta-4.jpg" alt=""/></a></article>
+              <article class="instagram__item"><a class="instagram__link" href="#">
+                  <h3 class="instagram__subtitle visually-hidden">Photo of everything</h3><img src="img/insta-5.jpg" alt=""/></a></article>
+            </div>
           </div>
         </div>
       </section>
